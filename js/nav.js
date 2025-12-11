@@ -14,22 +14,3 @@ window.onload = () => {
         `;
     }
 }
-
-// Función para abrir/cerrar el menú
-function toggleMenu() {
-    var menu = document.getElementById('nav');
-
-    // Si el menú tiene la clase 'active', la quitamos (cerrar)
-    // Si no la tiene, la añadimos (abrir)
-    if (menu.classList.contains('active')) {
-        menu.classList.remove('active');
-    } else {
-        menu.classList.add('active');
-    }
-}
-
-// Función para cerrar el menú
-function cerrarMenu() {
-    var menu = document.getElementById('nav');
-    menu.classList.remove('active');
-}
