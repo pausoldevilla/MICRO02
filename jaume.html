@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaume Viladoms - Cursos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary-color: #f4c542; /* Amarillo */
+    --secondary-color: #0d3765; /* Azul oscuro */
+    --text-color: #333;
+    --border-color: #ddd;
+    --star-color: #f4c542;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: var(--text-color);
+  }
+    
+    /* Contenedor general para el contenido principal (margin top para la sección hero) */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px; /* Padding lateral */
+    }
+
+  /* ===== HEADER (Se mantiene el estilo proporcionado) ===== */
+
+  header {
+    padding: 20px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; 
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  nav {
+    display: flex;
+    gap: 40px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative; 
+    padding-bottom: 5px; 
+    transition: color 0.3s ease;
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px; 
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color); 
+    transition: width 0.3s ease-out; 
+    border-radius: 2px;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  nav a:hover {
+    color: var(--secondary-color);
+  }
+
+  .btn-login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-color); 
+    color: #1f1f1f; 
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-login svg {
+    fill: #1f1f1f; 
+    height: 20px;
+    width: 20px;
+    transition: fill 0.3s ease;
+  }
+
+  .btn-login:hover {
+    background: #fff; 
+    border-color: var(--primary-color);
+    color: #1f1f1f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-login:hover svg {
+    fill: var(--primary-color); 
+  }
+
+  /* ===== HERO (Se mantiene el estilo proporcionado) ===== */
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    margin: 0px 20px;
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+
+        /* Fondo con degradado + imagen - Se asume una imagen 'classe.jpeg' */
+        background: linear-gradient( 
+            rgba(13, 55, 101, 0.3),
+            rgba(13, 55, 101, 0.95)
+        ), 
+        url("img/classe.jpeg"); 
+
+        background-size: cover;
+        background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 20px;
+    font-weight: 700;
+    max-width: 800px;
+  }
+  
+  .hero p {
+    max-width: 620px;
+    margin: 0 auto 30px;
+    font-size: 1rem;
+    opacity: 0.95;
+    line-height: 1.6rem;
+  }
+
+  .hero-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .hero-inputs input {
+    width: 700px;
+    flex-grow: 1;
+    padding: 20px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .hero-inputs button {
+    padding: 18px 40px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-inputs button:hover {
+    background-color: #ffd700;
+  }
+
+
+  /* ===== TITLE SECTION (Se mantiene el estilo proporcionado) ===== */
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 60px 0 40px;
+  font-weight: 700;
+  color: black;
+
+  text-decoration: underline;      
+  text-decoration-color: #f4c542;     
+  text-decoration-thickness: 4px;     
+  text-underline-offset: 6px;       
+}
+
+
+
+  /* ===== COURSE CARDS (Se mantiene el estilo proporcionado) ===== */
+
+  .grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-bottom: 60px;
+  }
+
+  .card {
+    width: 280px;
+    padding: 28px 20px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+  }
+
+  .divider {
+    width: 60%;
+    height: 2px;
+    background: #dcdcdc;
+    margin: 15px auto;
+  }
+
+  .rating {
+    font-size: 1.2rem;
+    color: var(--star-color);
+    margin-bottom: 15px;
+  }
+    
+    .rating-small {
+    font-size: 0.9rem;
+    color: var(--star-color);
+    margin-top: 5px;
+    display: block;
+  }
+
+  .btn-more {
+    background: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-more:hover {
+    background-color: #ffd700;
+  }
+
+    /* ===== PROFESSOR CARD (NUEVO) ===== */
+    .professor-card {
+        padding-top: 15px; /* Ajuste para el círculo */
+    }
+
+    .professor-avatar {
+        width: 80px;
+        height: 80px;
+        background: #eee; /* Color de fondo gris claro para el placeholder */
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        /* Estilo para simular la imagen de perfil (silueta) */
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+
+    .professor-card .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 5px;
+    }
+
+    .professor-specialty {
+        color: var(--secondary-color);
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .professor-description {
+        font-size: 0.8rem;
+        color: #666;
+        line-height: 1.4;
+        text-align: left;
+        margin-bottom: 0;
+        height: 80px; /* Altura fija para alineación */
+        overflow: hidden;
+    }
+    
+    .professor-card .rating {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    
+    /* Estilo para simular el borde sutil entre descripción y rating */
+    .professor-card .divider {
+        display: none;
+    }
+
+
+    /* ===== REVIEW SECTION (NUEVO) ===== */
+    .reviews-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding-bottom: 80px;
+    }
+
+    .reviews-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 400px; /* Ancho de la columna */
+    }
+
+    .review-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        background: #fdfdfd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+    
+    .review-item .avatar-placeholder {
+        width: 50px;
+        height: 50px;
+        background: #eee; 
+        border-radius: 50%;
+        margin-right: 15px;
+        flex-shrink: 0;
+        /* Simular silueta de persona dentro del círculo (más simple) */
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .review-item .avatar-placeholder svg {
+        fill: #ccc;
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .review-content {
+        flex-grow: 1;
+    }
+
+    .review-content strong {
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 2px;
+    }
+
+    .review-content small {
+        display: block;
+        font-size: 0.8rem;
+        color: #999;
+        margin-bottom: 5px;
+    }
+    
+    .review-rating {
+        text-align: right;
+        margin-left: 15px;
+        flex-shrink: 0;
+    }
+
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo">
+        <img src="img/jaume-viladoms.png" alt="Logo">
+  </div>
+
+  <nav>
+    <a href="#cursos">Millors cursos</a>
+    <a href="#profesores">Millors profes</a> 
+    <a href="#valoraciones">Valoracions</a>
+  </nav>
+
+  <button class="btn-login">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+    Login
+  </button>
+</header>
+
+<section class="hero">
+  <h1>Descubre los mejores cursos con los mejores profesionales</h1>
+
+  <div class="hero-inputs">
+    <input type="text" placeholder="Nom del curs">
+    <button>Buscar</button>
+  </div>
+</section>
+
+<h2 class="section-title" id="cursos">Cursos millor valorats</h2>
+
+<div class="grid">
+      <div class="card">
+    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
+    <p style="font-size:0.8rem; color: #666; margin: 5px 0 10px;">A simple landing page webs on refactoring.</p>
+    <div class="rating">★ ★ ★ ☆ ☆</div>
+    <a href="#" class="btn-more">Veure més</a>
+  </div>
+    
+      <div class="card">
+    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
+    <p style="font-size:0.8rem; color: #666; margin: 5px 0 10px;">A simple landing page webs on refactoring.</p>
+    <div class="rating">★ ★ ★ ★ ☆</div>
+    <a href="#" class="btn-more">Veure més</a>
+  </div>
+
+      <div class="card">
+    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
+    <p style="font-size:0.8rem; color: #666; margin: 5px 0 10px;">A simple landing page webs on refactoring.</p>
+    <div class="rating">★ ★ ★ ★ ☆</div>
+    <a href="#" class="btn-more">Veure més</a>
+  </div>
+</div>
+
+<h2 class="section-title" id="profesores">Profesores millor valorats</h2>
+
+<div class="grid">
+      <div class="card professor-card">
+    <div class="professor-avatar"></div>
+    <h3 class="card-title">Jordi Casals – Expert en Desenvolupament Web</h3>
+    <div class="rating">★ ★ ★ ★ ☆</div>
+        <p class="professor-description">Professor apassionat del $DAW$, amb experiència en projectes webs i desenvolupament dinàmic web. Elabora el temari actualitzat amb les últimes experiències.</p>
+  </div>
+
+      <div class="card professor-card">
+    <div class="professor-avatar"></div>
+    <h3 class="card-title">Marta Soler – Administradora Sistemes</h3>
+    <div class="rating">★ ★ ★ ☆ ☆</div>
+        <p class="professor-description">Especialitzada $ADDI$, anti-ciberdelinqüència i qualsevol seguretat $IT$ $sense$ Omegatrade per fer les classes molt entretingudes i interessants per a tothom.</p>
+  </div>
+
+      <div class="card professor-card">
+    <div class="professor-avatar"></div>
+    <h3 class="card-title">Pau Ferrer – Tècnic en Microinformàtica</h3>
+    <div class="rating">★ ★ ★ ☆ ☆</div>
+        <p class="professor-description">Professor de $SMX$ que controla tota la xarxa i els seus protocols. Desenvolupant sobre la seva experiència, fa les seves classes molt interessants i completes.</p>
+  </div>
+</div>
+
+<h2 class="section-title" id="valoraciones">Algunes valoracions</h2>
+
+<div class="reviews-list">
+    <div class="reviews-column">
+        
+        <div class="review-item">
+            <div class="avatar-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            </div>
+            <div class="review-content">
+                <strong>List Item</strong>
+                <small>Category - SS - 1.2 miles away</small>
+                <span style="font-size:0.8rem; color: #666;">Supporting line text lorem ipsum dolor sit amet...</span>
+            </div>
+            <div class="review-rating">
+                <span class="rating-small">★ ★ ★ ★ ★</span>
+            </div>
+        </div>
+
+        <div class="review-item">
+            <div class="avatar-placeholder">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            </div>
+            <div class="review-content">
+                <strong>List Item</strong>
+                <small>Category - SS - 1.2 miles away</small>
+                <span style="font-size:0.8rem; color: #666;">Supporting line text lorem ipsum dolor sit amet...</span>
+            </div>
+            <div class="review-rating">
+                <span class="rating-small">★ ★ ★ ★ ☆</span>
+            </div>
+        </div>
+
+        <div class="review-item">
+            <div class="avatar-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            </div>
+            <div class="review-content">
+                <strong>List Item</strong>
+                <small>Category - SS - 1.2 miles away</small>
+                <span style="font-size:0.8rem; color: #666;">Supporting line text lorem ipsum dolor sit amet...</span>
+            </div>
+            <div class="review-rating">
+                <span class="rating-small">★ ★ ★ ★ ☆</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-column">
+        
+        <div class="review-item">
+            <div class="avatar-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            </div>
+            <div class="review-content">
+                <strong>List Item</strong>
+                <small>Category - SS - 1.2 miles away</small>
+                <span style="font-size:0.8rem; color: #666;">Supporting line text lorem ipsum dolor sit amet...</span>
+            </div>
+            <div class="review-rating">
+                <span class="rating-small">★ ★ ★ ★ ★</span>
+            </div>
+        </div>
+
+        <div class="review-item">
+            <div class="avatar-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            </div>
+            <div class="review-content">
+                <strong>List Item</strong>
+                <small>Category - SS - 1.2 miles away</small>
+                <span style="font-size:0.8rem; color: #666;">Supporting line text lorem ipsum dolor sit amet...</span>
+            </div>
+            <div class="review-rating">
+                <span class="rating-small">★ ★ ★ ★ ☆</span>
+            </div>
+        </div>
+
+        <div class="review-item">
+            <div class="avatar-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            </div>
+            <div class="review-content">
+                <strong>List Item</strong>
+                <small>Category - SS - 1.2 miles away</small>
+                <span style="font-size:0.8rem; color: #666;">Supporting line text lorem ipsum dolor sit amet...</span>
+            </div>
+            <div class="review-rating">
+                <span class="rating-small">★ ★ ★ ★ ★</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
