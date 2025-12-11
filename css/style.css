@@ -1,5 +1,6 @@
 :root {
   --primary-color: #f4c542; /* Amarillo */
+    --primary-hover: #eeaf02; /* Amarillo */
   --secondary-color: #0d3765; /* Azul oscuro */
   --text-color: #333;
   --border-color: #ddd;
@@ -77,7 +78,7 @@ nav a:hover {
   color: #1f1f1f; 
   padding: 12px 25px;
   border-radius: 8px;
-  border: 2px solid var(--primary-color);
+  border: none;
   font-weight: 700;
   cursor: pointer;
   font-size: 1rem;
@@ -92,7 +93,7 @@ nav a:hover {
 }
 
 .btn-login:hover {
-  fill: var(--primary-color); 
+  background: #ffd700; 
 }
 
 /* ===== HERO (Se mantiene el estilo proporcionado) ===== */
@@ -160,12 +161,13 @@ nav a:hover {
   font-weight: 700;
   font-size: 1rem;
   color: #333;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .hero-inputs button:hover {
-  background-color: #ffd700;
+  transform: translateY(-3px);
 }
+
 
 
 /* ===== TITLE SECTION (Se mantiene el estilo proporcionado) ===== */
@@ -197,7 +199,7 @@ nav a:hover {
 
 .card {
   width: 280px;
-  padding: 28px 20px;
+  padding: 28px 60px;
   background: #fff;
   border-radius: 12px;
   text-align: center;
@@ -210,12 +212,6 @@ nav a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.card-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-}
 
 .divider {
   width: 60%;
@@ -260,11 +256,11 @@ nav a:hover {
 }
 
 .professor-avatar {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: #eee; /* Color de fondo gris claro para el placeholder */
-  border-radius: 5%;
-  margin: 0 auto 15px;
+  border-radius: 16px;
+  margin: 5px auto 15px;
   /* Estilo para simular la imagen de perfil (silueta) */
   display: flex;
   align-items: flex-end;
@@ -272,9 +268,17 @@ nav a:hover {
   overflow: hidden;
 }
 
+hr {
+  border: none;
+  height: 1px;          /* gruix de la línia */
+  background-color: #000000;  /* color de la línia */
+  border-radius: 4px;   /* opcional: cantonades arrodonides */
+}
+
+
 
 .professor-card .card-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-color);
   margin-bottom: 5px;
@@ -294,7 +298,6 @@ nav a:hover {
   line-height: 1.4;
   text-align: left;
   margin-bottom: 0;
-  height: 80px; /* Altura fija para alineación */
   overflow: hidden;
 }
 
@@ -347,7 +350,7 @@ nav a:hover {
   width: 50px;
   height: 50px;
   background: #eee; 
-  border-radius: 50%;
+  border-radius: 16px;
   margin-right: 15px;
   flex-shrink: 0;
   /* Simular silueta de persona dentro del círculo (más simple) */
