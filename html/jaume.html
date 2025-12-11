@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaume Viladoms - Cursos</title>
+
+<link rel="stylesheet" href="../css/jaume.css"> 
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../img/jaume-viladoms.png" alt="Logo Jaume Viladoms">
+        </div>
+
+        <nav aria-label="Navegación principal">
+            <a href="#cursos">Millors cursos</a>
+            <a href="#profesores">Millors profes</a> 
+            <a href="#valoraciones">Valoracions</a>
+        </nav>
+
+        <button class="btn-login" aria-label="Iniciar sesión">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            Login
+        </button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Descubre los mejores cursos con los mejores profesionales</h1>
+
+            <div class="hero-inputs">
+                <input type="text" placeholder="Nom del curs" aria-label="Campo de búsqueda de cursos">
+                <button aria-label="Buscar cursos">Buscar</button>
+            </div>
+        </section>
+
+        <section class="container" id="cursos">
+            <h2 class="section-title">Cursos millor valorats</h2>
+            
+            <div class="grid">
+                <article class="card">
+                    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
+                    <hr class="divider">
+                    <div class="rating" role="img" aria-label="Valoración: 3 de 5 estrellas">★ ★ ★ ☆ ☆</div>
+                    <p class="card-description">A simple landing page webs on refactoring.</p>
+                    <a href="#" class="btn-more">Veure més</a>
+                </article>
+                
+                <article class="card">
+                    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
+                    <hr class="divider">
+                    <div class="rating" role="img" aria-label="Valoración: 4 de 5 estrellas">★ ★ ★ ★ ☆</div>
+                    <p class="card-description">A simple landing page webs on refactoring.</p>
+                    <a href="#" class="btn-more">Veure més</a>
+                </article>
+
+                <article class="card">
+                    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
+                    <hr class="divider">
+                    <div class="rating" role="img" aria-label="Valoración: 4 de 5 estrellas">★ ★ ★ ★ ☆</div>
+                    <p class="card-description">A simple landing page webs on refactoring.</p>
+                    <a href="#" class="btn-more">Veure més</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="container" id="profesores">
+            <h2 class="section-title">Profesores millor valorats</h2>
+            
+            <div class="grid">
+                <article class="card professor-card">
+                    <div class="professor-avatar" aria-hidden="true"></div>
+                    <h3 class="card-title">Jordi Casals – Expert en Desenvolupament Web</h3>
+                    <span class="professor-specialty">Desenvolupament Web (DAW)</span>
+                    <hr class="divider">
+                    <div class="rating" role="img" aria-label="Valoración: 4 de 5 estrellas">★ ★ ★ ★ ☆</div>
+                    <p class="professor-description">Professor apassionat del DAW, amb experiència en projectes reals de programació i disseny web. Els seus alumnes destaquen la claredat i la paciència.</p>
+                </article>
+
+                <article class="card professor-card">
+                    <div class="professor-avatar" aria-hidden="true"></div>
+                    <h3 class="card-title">Marta Soler – Administradora Sistemes</h3>
+                    <span class="professor-specialty">Administració Sistemes (ASIX)</span>
+                    <hr class="divider">
+                    <div class="rating" role="img" aria-label="Valoración: 3 de 5 estrellas">★ ★ ★ ☆ ☆</div>
+                    <p class="professor-description">Especialista en ASIX, amb coneixements avançats en seguretat i xarxes. Coneguda per fer les classes molt pràctiques i adaptades al món laboral.</p>
+                </article>
+
+                <article class="card professor-card">
+                    <div class="professor-avatar" aria-hidden="true"></div>
+                    <h3 class="card-title">Pau Ferrer – Tècnic en Microinformàtica</h3>
+                    <span class="professor-specialty">Microinformàtica (SMIX)</span>
+                     <hr class="divider">
+                    <div class="rating" role="img" aria-label="Valoración: 3 de 5 estrellas">★ ★ ★ ☆ ☆</div>
+                    <p class="professor-description">Professor de SMIX que combina teoria amb tallers pràctics. Els estudiants valoren la seva proximitat i la manera d’explicar conceptes complexos.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="container" id="valoraciones">
+            <h2 class="section-title">Algunes valoracions</h2>
+
+            <div class="reviews-list">
+                <article class="review-item">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                    </div>
+                    <div class="review-content">
+                        <strong>Joan Prats</strong>
+                        <small>Alumne de Desenvolupament Web</small>
+                        <p class="review-text">Supporting line text lorem ipsum dolor sit amet...</p>
+                    </div>
+                    <div class="review-rating" role="img" aria-label="Valoración: 5 de 5 estrellas">
+                        <span class="rating-small">★ ★ ★ ★ ★</span>
+                    </div>
+                </article>
+
+                <article class="review-item">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                    </div>
+                    <div class="review-content">
+                        <strong>Maria López</strong>
+                        <small>Alumne d'Administració Sistemes</small>
+                        <p class="review-text">Supporting line text lorem ipsum dolor sit amet...</p>
+                    </div>
+                    <div class="review-rating" role="img" aria-label="Valoración: 4 de 5 estrellas">
+                        <span class="rating-small">★ ★ ★ ★ ☆</span>
+                    </div>
+                </article>
+
+                <article class="review-item">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                    </div>
+                    <div class="review-content">
+                        <strong>Pere Bosch</strong>
+                        <small>Alumne de Microinformàtica</small>
+                        <p class="review-text">Supporting line text lorem ipsum dolor sit amet...</p>
+                    </div>
+                    <div class="review-rating" role="img" aria-label="Valoración: 5 de 5 estrellas">
+                        <span class="rating-small">★ ★ ★ ★ ★</span>
+                    </div>
+                </article>
+                
+                 <article class="review-item">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                    </div>
+                    <div class="review-content">
+                        <strong>List Item</strong>
+                        <small>Category - SS - 1.2 miles away</small>
+                        <p class="review-text">Supporting line text lorem ipsum dolor sit amet...</p>
+                    </div>
+                    <div class="review-rating" role="img" aria-label="Valoración: 5 de 5 estrellas">
+                        <span class="rating-small">★ ★ ★ ★ ★</span>
+                    </div>
+                </article>
+
+                <article class="review-item">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                    </div>
+                    <div class="review-content">
+                        <strong>List Item</strong>
+                        <small>Category - SS - 1.2 miles away</small>
+                        <p class="review-text">Supporting line text lorem ipsum dolor sit amet...</p>
+                    </div>
+                    <div class="review-rating" role="img" aria-label="Valoración: 4 de 5 estrellas">
+                        <span class="rating-small">★ ★ ★ ★ ☆</span>
+                    </div>
+                </article>
+
+                <article class="review-item">
+                    <div class="avatar-placeholder" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                    </div>
+                    <div class="review-content">
+                        <strong>List Item</strong>
+                        <small>Category - SS - 1.2 miles away</small>
+                        <p class="review-text">Supporting line text lorem ipsum dolor sit amet...</p>
+                    </div>
+                    <div class="review-rating" role="img" aria-label="Valoración: 5 de 5 estrellas">
+                        <span class="rating-small">★ ★ ★ ★ ★</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Cursos</h4>
+                <a href="#cursos">Desenvolupament Web</a>
+                <a href="#cursos">Administració Sistemes</a>
+                <a href="#cursos">Ciberseguretat</a>
+                <a href="#cursos">Microinformàtica</a>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <a href="#">Blog</a>
+                <a href="#">Ajuda i Suport</a>
+                <a href="#">FAQ</a>
+                <a href="#valoraciones">Testimonis</a>
+            </div>
+            <div class="footer-section">
+                <h4>Sobre Nosaltres</h4>
+                <a href="#profesores">El nostre equip</a>
+                <a href="#">Política de Privacitat</a>
+                <a href="#">Termes i Condicions</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contacte</h4>
+                <p>Email: info@jaumeviladoms.cat</p>
+                <p>Telèfon: +34 93 123 45 67</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Jaume Viladoms. Tots els drets reservats.
+        </div>
+    </footer>
+
+</body>
+</html>
