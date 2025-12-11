@@ -92,19 +92,13 @@ nav a:hover {
 }
 
 .btn-login:hover {
-  background: #fff; 
-  border-color: var(--primary-color);
-  color: #1f1f1f;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.btn-login:hover svg {
   fill: var(--primary-color); 
 }
 
 /* ===== HERO (Se mantiene el estilo proporcionado) ===== */
 
 .hero {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,7 +114,7 @@ nav a:hover {
     rgba(13, 55, 101, 0.3),
     rgba(13, 55, 101, 0.95)
   ), 
-  url("img/classe.jpeg"); 
+  url("../img/classe.jpeg"); 
 
   background-size: cover;
   background-position: center;
@@ -269,7 +263,7 @@ nav a:hover {
   width: 80px;
   height: 80px;
   background: #eee; /* Color de fondo gris claro para el placeholder */
-  border-radius: 50%;
+  border-radius: 5%;
   margin: 0 auto 15px;
   /* Estilo para simular la imagen de perfil (silueta) */
   display: flex;
@@ -318,7 +312,7 @@ nav a:hover {
 /* ===== REVIEW SECTION (NUEVO) ===== */
 .reviews-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
   padding-bottom: 80px;
