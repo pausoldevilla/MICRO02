@@ -1,0 +1,409 @@
+/* ==================== 1. VARIABLES CSS (Custom Properties) ==================== */
+:root {
+    /* Colores Principales */
+    --primary-color: #f4c542; /* Amarillo */
+    --primary-hover: #eeaf02; 
+    --secondary-color: #0d3765; /* Azul oscuro */
+    --text-color: #333;
+    --border-color: #ddd;
+    --star-color: #f4c542;
+    
+    /* Botones */
+    --btn-more-color: #ff8c00; /* NARANJA para botones "Ver Más" */
+    --btn-more-hover-color: #e67e22; /* NARANJA más oscuro al pasar el ratón */
+
+    /* Diseño de Tarjetas (Cards) */
+    --card-padding: 25px; 
+    --card-radius: 12px;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15); 
+}
+
+/* ==================== 2. ESTILOS BASE / RESET (Adaptat) ==================== */
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header, Navigation, Footer (Estils no inclosos, assumeixo que ja els tens al teu fitxer) */
+/* ... (Seccions 3 i 6 eliminades per brevetat) ... */
+
+/* Estils de les targetes i valoracions (Adaptat de la secció 4) */
+.review-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    margin-bottom: 20px; 
+    border-radius: var(--card-radius);
+    background: #fdfdfd;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.review-item .avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color); 
+    border-radius: 8px; 
+    margin-right: 15px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.review-item .avatar-placeholder svg {
+    fill: var(--secondary-color); 
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.review-content {
+    flex-grow: 1;
+}
+
+.review-content small {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.review-text {
+    font-size: 0.8rem; 
+    color: #666;
+    margin: 0;
+}
+
+.rating-small {
+    font-size: 0.9rem;
+    color: var(--star-color);
+    display: block;
+}
+
+.divider {
+    border: none;
+    height: 3px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+.btn-more {
+    background: var(--btn-more-color); 
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-more:hover {
+    background-color: var(--btn-more-hover-color); 
+    transform: translateY(-1px);
+}
+
+/* ==================== 5. ESTILS DE LA PÀGINA DE CURS INDIVIDUAL ==================== */
+
+/* -------------------- 5.1. Hero de Curs -------------------- */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    margin: 0 20px; 
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    
+    /* Fondo con degradado + imagen */
+    background: linear-gradient( 
+        rgba(13, 55, 101, 0.3),
+        rgba(13, 55, 101, 0.95)
+    ), 
+    url("../img/classe.jpeg"); 
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    max-width: 800px;
+    padding: 0 10px;
+}
+
+.professor-list {
+    display: flex;
+    gap: 20px;
+}
+
+.small-professor-card {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 15px;
+    box-shadow: var(--card-shadow);
+    background: #ffffff; /* Fons blanc per contrastar amb el hero */
+    color: var(--text-color);
+    border-radius: 8px;
+}
+
+.small-professor-card .professor-avatar {
+    width: 60px;
+    height: 60px;
+    margin: 0 15px 0 0;
+    flex-shrink: 0;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.small-professor-card .professor-avatar::after {
+    content: '🧑‍🏫';
+    font-size: 2rem;
+}
+
+.small-professor-card .card-title {
+    font-size: 1rem;
+    margin: 0 0 5px;
+    line-height: 1.2;
+}
+
+.small-professor-card .professor-specialty {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.small-professor-card .rating {
+    font-size: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: var(--star-color);
+}
+
+.small-professor-card .btn-more {
+    margin-left: auto;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    align-self: center;
+}
+
+
+/* -------------------- 5.2. Maquetació Principal (Contingut + Sidebar) -------------------- */
+
+.course-main-layout {
+    display: flex;
+    gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+    align-items: flex-start; /* Els elements comencen a la part superior */
+}
+
+.course-content {
+    flex: 3; /* Ocupa 3 parts de l'espai */
+    min-width: 60%;
+}
+
+.course-sidebar {
+    flex: 2; /* Ocupa 2 parts de l'espai */
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    position: sticky; /* Fa que la sidebar es quedi fixa al fer scroll */
+    top: 120px; 
+    padding-top: 10px;
+}
+
+.content-title {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin: 0 0 20px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+/* -------------------- 5.3. Targetes de la Sidebar (Formulari i Resum) -------------------- */
+
+.sidebar-section-title {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 3px solid var(--primary-color);
+}
+
+/* Targeta de Resum de Valoracions */
+.review-summary-card {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-score {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.summary-text {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* Targeta de Valoració (Formulari) */
+.rating-review-card {
+    text-align: center;
+    border: 3px solid var(--primary-color);
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.rating-review-card .card-title {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+/* Formulari */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    resize: vertical;
+}
+
+.form-group textarea {
+    min-height: 100px;
+}
+
+.full-width-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Estrelles de Valoració al Formulari */
+.rating-form h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.star-input {
+    display: flex;
+    justify-content: center;
+    direction: rtl; 
+    margin-bottom: 20px;
+}
+
+.star-input input[type="radio"] {
+    display: none;
+}
+
+.star-input label {
+    font-size: 2.2rem;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: color 0.2s;
+}
+
+.star-input input[type="radio"]:checked ~ label, 
+.star-input label:hover,
+.star-input label:hover ~ label {
+    color: var(--star-color);
+}
+
+
+/* ==================== 7. RESPONSIVE / MEDIA QUERIES ==================== */
+
+@media (max-width: 1000px) {
+    .course-main-layout {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 30px;
+    }
+
+    .course-sidebar {
+        position: static; 
+        width: 100%;
+        min-width: unset;
+        order: 2; 
+        padding-top: 0;
+    }
+
+    .course-content {
+        order: 1; 
+        min-width: 100%;
+    }
+    
+    .hero {
+        min-height: 30vh;
+        padding: 40px 0;
+    }
+    
+    .professor-list {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .small-professor-card {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header (Estils no inclosos, però es mantenen els teus originals per a mòbils) */
+}

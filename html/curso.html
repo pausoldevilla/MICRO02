@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curs: Desenvolupament Web Avançat - Valoracions</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* [INSERCIÓ DEL CODI CSS DEL FITXER 1 AQUÍ] */
+        /* ... (Les variables, base, i els estils de curs) ... */
+        
+        /* Codi CSS complet (variables, base, header, footer i estils de curs) */
+        /* ==================== 1. VARIABLES CSS (Custom Properties) ==================== */
+        :root {
+            /* Colores Principales */
+            --primary-color: #f4c542; /* Amarillo */
+            --primary-hover: #eeaf02; 
+            --secondary-color: #0d3765; /* Azul oscuro */
+            --text-color: #333;
+            --border-color: #ddd;
+            --star-color: #f4c542;
+            
+            /* Botones */
+            --btn-more-color: #ff8c00; /* NARANJA para botones "Ver Más" */
+            --btn-more-hover-color: #e67e22; /* NARANJA más oscuro al pasar el ratón */
+
+            /* Diseño de Tarjetas (Cards) */
+            --card-padding: 25px; 
+            --card-radius: 12px;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+            --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15); 
+        }
+
+        /* ==================== 2. ESTILOS BASE / RESET ==================== */
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* Contenedor general para limitar el ancho del contenido */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Clase genérica para la estructura de rejilla (cursos y profesores) */
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap; 
+            padding-bottom: 60px;
+        }
+        
+        /* -------------------- Estils Comuns -------------------- */
+        .review-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            margin-bottom: 20px; 
+            border-radius: var(--card-radius);
+            background: #fdfdfd;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .review-item .avatar-placeholder {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color); 
+            border-radius: 8px; 
+            margin-right: 15px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-item .avatar-placeholder svg {
+            fill: var(--secondary-color); 
+            width: 80%;
+            height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .review-content {
+            flex-grow: 1;
+        }
+
+        .review-content small {
+            display: block;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .review-text {
+            font-size: 0.8rem; 
+            color: #666;
+            margin: 0;
+        }
+
+        .rating-small {
+            font-size: 0.9rem;
+            color: var(--star-color);
+            display: block;
+        }
+
+        .divider {
+            border: none;
+            height: 3px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .btn-more {
+            background: var(--btn-more-color); 
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-more:hover {
+            background-color: var(--btn-more-hover-color); 
+            transform: translateY(-1px);
+        }
+
+        /* ==================== 3. HEADER Y NAVEGACIÓN (Del teu codi) ==================== */
+
+        header {
+            padding: 20px 40px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative; 
+            padding-bottom: 5px; 
+            transition: color 0.3s ease;
+        }
+        
+        nav a.current-page {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+        
+        nav a.current-page::after {
+            width: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        /* Subrayado animado */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 4px; 
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color); 
+            transition: width 0.3s ease-out; 
+            border-radius: 2px;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Botón de Login */
+        .btn-login {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-color); 
+            color: #1f1f1f; 
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login svg {
+            fill: #1f1f1f; 
+            height: 20px;
+            width: 20px;
+            transition: fill 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: var(--primary-hover); 
+        }
+
+        /* ==================== 5. ESTILS DE LA PÀGINA DE CURS INDIVIDUAL ==================== */
+
+        /* -------------------- 5.1. Hero de Curs -------------------- */
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; 
+            margin: 0 20px; 
+            border-radius: 15px;
+            color: #fff;
+            text-align: center;
+            
+            /* Fondo con degradado + imagen */
+            background: linear-gradient( 
+                rgba(13, 55, 101, 0.3),
+                rgba(13, 55, 101, 0.95)
+            ), 
+            url("../img/classe.jpeg"); 
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            max-width: 800px;
+            padding: 0 10px;
+        }
+
+        .professor-list {
+            display: flex;
+            gap: 20px;
+        }
+
+        .small-professor-card {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 15px;
+            box-shadow: var(--card-shadow);
+            background: #ffffff; 
+            color: var(--text-color);
+            border-radius: 8px;
+        }
+
+        .small-professor-card .professor-avatar {
+            width: 60px;
+            height: 60px;
+            margin: 0 15px 0 0;
+            flex-shrink: 0;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+        }
+
+        .small-professor-card .professor-avatar::after {
+            content: '🧑‍🏫';
+            font-size: 2rem;
+        }
+
+        .small-professor-card .card-title {
+            font-size: 1rem;
+            margin: 0 0 5px;
+            line-height: 1.2;
+        }
+
+        .small-professor-card .professor-specialty {
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .small-professor-card .rating {
+            font-size: 1rem;
+            margin-bottom: 0;
+            margin-top: 0;
+            color: var(--star-color);
+        }
+
+        .small-professor-card .btn-more {
+            margin-left: auto;
+            padding: 8px 15px;
+            font-size: 0.8rem;
+            align-self: center;
+        }
+
+
+        /* -------------------- 5.2. Maquetació Principal (Contingut + Sidebar) -------------------- */
+
+        .course-main-layout {
+            display: flex;
+            gap: 40px;
+            padding-top: 60px;
+            padding-bottom: 80px;
+            align-items: flex-start; /* Els elements comencen a la part superior */
+        }
+
+        .course-content {
+            flex: 3; /* Ocupa 3 parts de l'espai */
+            min-width: 60%;
+        }
+
+        .course-sidebar {
+            flex: 2; /* Ocupa 2 parts de l'espai */
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; 
+            position: sticky; /* Fa que la sidebar es quedi fixa al fer scroll */
+            top: 120px; 
+            padding-top: 10px;
+        }
+
+        .content-title {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin: 0 0 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        /* -------------------- 5.3. Targetes de la Sidebar (Formulari i Resum) -------------------- */
+
+        .sidebar-section-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin: 10px 0 0;
+            padding-top: 10px;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        /* Targeta de Resum de Valoracions */
+        .review-summary-card {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            text-align: center;
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .summary-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summary-score {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .summary-text {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* Targeta de Valoració (Formulari) */
+        .rating-review-card {
+            text-align: center;
+            border: 3px solid var(--primary-color);
+            padding: var(--card-padding);
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .rating-review-card .card-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Formulari */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            resize: vertical;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+        }
+
+        .full-width-btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Estrelles de Valoració al Formulari */
+        .rating-form h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .star-input {
+            display: flex;
+            justify-content: center;
+            direction: rtl; 
+            margin-bottom: 20px;
+        }
+
+        .star-input input[type="radio"] {
+            display: none;
+        }
+
+        .star-input label {
+            font-size: 2.2rem;
+            color: #ccc;
+            cursor: pointer;
+            padding: 0 5px;
+            transition: color 0.2s;
+        }
+
+        .star-input input[type="radio"]:checked ~ label, 
+        .star-input label:hover,
+        .star-input label:hover ~ label {
+            color: var(--star-color);
+        }
+
+
+        /* ==================== 6. FOOTER (Del teu codi) ==================== */
+
+        footer {
+            background-color: var(--secondary-color); 
+            color: #fff;
+            padding: 40px 20px 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #1f5087;
+            padding-top: 20px;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        /* ==================== 7. RESPONSIVE / MEDIA QUERIES ==================== */
+
+        @media (max-width: 1000px) {
+            .course-main-layout {
+                flex-direction: column;
+                gap: 20px;
+                padding-top: 30px;
+            }
+
+            .course-sidebar {
+                position: static; 
+                width: 100%;
+                min-width: unset;
+                order: 2; 
+                padding-top: 0;
+            }
+
+            .course-content {
+                order: 1; 
+                min-width: 100%;
+            }
+            
+            .hero {
+                min-height: 30vh;
+                padding: 40px 0;
+            }
+            
+            .professor-list {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+            }
+            
+            .small-professor-card {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Header */
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 20px;
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+            
+            /* Footer */
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                min-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .course-hero-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../img/jaume-viladoms.png" alt="Logo Jaume Viladoms">
+        </div>
+
+        <nav aria-label="Navegació principal">
+            <a href="index.html#cursos">Millors cursos</a>
+            <a href="index.html#profesores">Millors profes</a> 
+            <a href="index.html#valoraciones" class="current-page">Valoracions</a>
+        </nav>
+
+        <button class="btn-login" aria-label="Iniciar sesión">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            Login
+        </button>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container course-hero-content">
+                <h1>Desenvolupament Web Avançat: React i Node.js</h1>
+            </div>
+            <div class="professor-list">
+                <article class="card professor-card small-professor-card">
+                    <div class="professor-avatar" aria-label="Foto de Jordi Casals"></div>
+                    <div>
+                        <h4 class="card-title">Jordi Casals</h4>
+                        <span class="professor-specialty">React & Frontend</span>
+                        <div class="rating rating-small" role="img" aria-label="Valoració del professor: 4.5 de 5 estrelles">★ ★ ★ ★ ☆</div>
+                    </div>
+                    <a href="#" class="btn-more btn-small">Veure perfil</a>
+                </article>
+                
+                <article class="card professor-card small-professor-card">
+                    <div class="professor-avatar" aria-label="Foto de Marta Soler"></div>
+                    <div>
+                        <h4 class="card-title">Marta Soler</h4>
+                        <span class="professor-specialty">Node.js & Backend</span>
+                        <div class="rating rating-small" role="img" aria-label="Valoració del professor: 5 de 5 estrelles">★ ★ ★ ★ ★</div>
+                    </div>
+                    <a href="#" class="btn-more btn-small">Veure perfil</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="container course-main-layout">
+            
+            <aside class="course-sidebar">
+                
+                <h3 class="sidebar-section-title">⭐ Resum Valoracions</h3>
+                <article class="card review-summary-card">
+                    <div class="summary-item">
+                        <span class="summary-score">4.5</span>
+                        <span class="summary-text">Nota Mitjana</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-score">450</span>
+                        <span class="summary-text">Total Valoracions</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-score">98%</span>
+                        <span class="summary-text">Recomanen</span>
+                    </div>
+                </article>
+                
+                <article class="card rating-review-card">
+                    <h3 class="card-title">✨ La Teva Valoració del Curs</h3>
+                    
+                    <form action="#" method="POST" class="rating-form">
+                        <h4>La teva nota (obligatori):</h4>
+                        <div class="star-input" aria-label="Selecciona la teva valoració">
+                            <input type="radio" id="star5-r" name="rating" value="5" required><label for="star5-r" title="5 estrelles">★</label>
+                            <input type="radio" id="star4-r" name="rating" value="4"><label for="star4-r" title="4 estrelles">★</label>
+                            <input type="radio" id="star3-r" name="rating" value="3"><label for="star3-r" title="3 estrelles">★</label>
+                            <input type="radio" id="star2-r" name="rating" value="2"><label for="star2-r" title="2 estrelles">★</label>
+                            <input type="radio" id="star1-r" name="rating" value="1"><label for="star1-r" title="1 estrella">★</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="comment" placeholder="Deixa el teu comentari de valoració aquí..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="El teu Nom Complet (públic)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Correu Electrònic (privat)" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-more full-width-btn">Enviar Valoració</button>
+                        
+                        <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">*El teu correu electrònic no es farà públic.</p>
+                    </form>
+                </article>
+                
+            </aside>
+            
+            <div class="course-content">
+                
+                <hr class="divider">
+
+                <section id="testimonis-detallats">
+                    <h2 class="content-title">Opinió dels Alumnes</h2>
+                    
+                    <div class="reviews-list detailed-reviews-list">
+                        <article class="review-item">
+                            <div class="avatar-placeholder" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                            </div>
+                            <div class="review-content">
+                                <strong>Anna Claret</strong>
+                                <small>Alumna de la 2a Edició</small>
+                                <p class="review-text">"El curs és intens, però val la pena! Els projectes pràctics t'obliguen a aplicar tot el que aprens. El mòdul de Node.js amb la Marta és brutal."</p>
+                            </div>
+                            <div class="review-rating" role="img" aria-label="Valoració: 5 de 5 estrelles">
+                                <span class="rating-small">★ ★ ★ ★ ★</span>
+                            </div>
+                        </article>
+
+                        <article class="review-item">
+                            <div class="avatar-placeholder" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                            </div>
+                            <div class="review-content">
+                                <strong>Marc Bosch</strong>
+                                <small>Alumne de la 1a Edició</small>
+                                <p class="review-text">"Vaig començar sense experiència prèvia en React i ara puc construir aplicacions completes. El Jordi t'acompanya en tot el procés i resol els dubtes ràpidament."</p>
+                            </div>
+                            <div class="review-rating" role="img" aria-label="Valoració: 4 de 5 estrelles">
+                                <span class="rating-small">★ ★ ★ ★ ☆</span>
+                            </div>
+                        </article>
+                        
+                        <article class="review-item">
+                            <div class="avatar-placeholder" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                            </div>
+                            <div class="review-content">
+                                <strong>Laia Fàbregas</strong>
+                                <small>Alumna de l'Edició Actual</small>
+                                <p class="review-text">"Molt ben estructurat, especialment el tema de bases de dades amb MongoDB. Un 'must-do' si vols treballar amb el MERN Stack."</p>
+                            </div>
+                            <div class="review-rating" role="img" aria-label="Valoració: 5 de 5 estrelles">
+                                <span class="rating-small">★ ★ ★ ★ ★</span>
+                            </div>
+                        </article>
+
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="#" class="btn-more">Carregar 447 opinions més</a>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+            
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Jaume Viladoms</h4>
+                <p>La teva plataforma de formació en desenvolupament web i disseny.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enllaços ràpids</h4>
+                <a href="#">Els nostres cursos</a>
+                <a href="#">Els professors</a>
+                <a href="#">Contacte</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#">Avís Legal</a>
+                <a href="#">Política de Privacitat</a>
+                <a href="#">Condicions d'ús</a>
+            </div>
+            <div class="footer-section">
+                <h4>Segueix-nos</h4>
+                <p>Estem a les xarxes socials:</p>
+                <p>(Icones Socials aquí)</p>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            &copy; 2025 Jaume Viladoms. Tots els drets reservats.
+        </div>
+    </footer>
+</body>
+</html>
