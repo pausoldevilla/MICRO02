@@ -11,19 +11,10 @@ window.onload = function () {
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
     }
 
+    // Cuando hay un usuario logueado, redirige a la página de inicio
     const userLogged = JSON.parse(localStorage.getItem('userLogged'));
     if (userLogged) {
-        const btnLogin = document.getElementById('btnLogin');
-
-        const userHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
-                <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-            </svg>
-            ${userLogged.username}
-            <button class="btn-logout" onclick="logout()">X</button>
-        `;
-
-        if (btnLogin) btnLogin.innerHTML = userHTML;
+        window.location.href = '../index.html';
     }
 }
 
@@ -52,19 +43,7 @@ function login() {
 
         if ((usernameUser === email || email === emailUser) && password === passwordUser) {
             localStorage.setItem('userLogged', JSON.stringify(user));
-            const btnLogin = document.getElementById('btnLogin');
-
-            const userHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
-                    <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-                </svg>
-                ${user.username}
-                <button class="btn-logout" onclick="logout()">X</button>
-            `;
-
-            if (btnLogin) btnLogin.innerHTML = userHTML;
-
-            return;
+            window.location.href = '../index.html';
         }
     }
 

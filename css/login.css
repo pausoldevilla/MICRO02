@@ -1,5 +1,3 @@
-/* CSS for Login Page */
-
 body {
     display: flex;
     flex-direction: column;
@@ -106,6 +104,12 @@ body {
     border-radius: 10px;
     font-family: inherit;
     box-sizing: border-box;
+}
+
+.input-group input[type="file"] {
+    padding: 14px;
+    background: #f4f4f4;
+    cursor: pointer;
 }
 
 .input-group input:focus {
