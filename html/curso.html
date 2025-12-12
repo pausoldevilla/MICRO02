@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* [INSERCIÓ DEL CODI CSS DEL FITXER 1 AQUÍ] */
-        /* ... (Les variables, base, i els estils de curs) ... */
-        
-        /* Codi CSS complet (variables, base, header, footer i estils de curs) */
         /* ==================== 1. VARIABLES CSS (Custom Properties) ==================== */
         :root {
             /* Colores Principales */
-            --primary-color: #f4c542; /* Amarillo */
-            --primary-hover: #eeaf02; 
-            --secondary-color: #0d3765; /* Azul oscuro */
+            --primary-color: #f4c542;
+            /* Amarillo */
+            --primary-hover: #eeaf02;
+            --secondary-color: #0d3765;
+            /* Azul oscuro */
             --text-color: #333;
             --border-color: #ddd;
             --star-color: #f4c542;
-            
+
             /* Botones */
-            --btn-more-color: #ff8c00; /* NARANJA para botones "Ver Más" */
-            --btn-more-hover-color: #e67e22; /* NARANJA más oscuro al pasar el ratón */
+            --btn-more-color: #ff8c00;
+            /* NARANJA para botones "Ver Más" */
+            --btn-more-hover-color: #e67e22;
+            /* NARANJA más oscuro al pasar el ratón */
 
             /* Diseño de Tarjetas (Cards) */
-            --card-padding: 25px; 
+            --card-padding: 25px;
             --card-radius: 12px;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-            --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15); 
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         /* ==================== 2. ESTILOS BASE / RESET ==================== */
@@ -55,16 +56,16 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             padding-bottom: 60px;
         }
-        
+
         /* -------------------- Estils Comuns -------------------- */
         .review-item {
             display: flex;
             align-items: flex-start;
             padding: 15px;
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
             border-radius: var(--card-radius);
             background: #fdfdfd;
             box-shadow: var(--card-shadow);
@@ -79,8 +80,8 @@
         .review-item .avatar-placeholder {
             width: 50px;
             height: 50px;
-            background: var(--primary-color); 
-            border-radius: 8px; 
+            background: var(--primary-color);
+            border-radius: 8px;
             margin-right: 15px;
             flex-shrink: 0;
             position: relative;
@@ -88,7 +89,7 @@
         }
 
         .review-item .avatar-placeholder svg {
-            fill: var(--secondary-color); 
+            fill: var(--secondary-color);
             width: 80%;
             height: 80%;
             position: absolute;
@@ -110,7 +111,7 @@
         }
 
         .review-text {
-            font-size: 0.8rem; 
+            font-size: 0.8rem;
             color: #666;
             margin: 0;
         }
@@ -128,9 +129,9 @@
             border-radius: 4px;
             margin: 15px 0;
         }
-        
+
         .btn-more {
-            background: var(--btn-more-color); 
+            background: var(--btn-more-color);
             padding: 12px 25px;
             border-radius: 8px;
             border: none;
@@ -146,18 +147,18 @@
         }
 
         .btn-more:hover {
-            background-color: var(--btn-more-hover-color); 
+            background-color: var(--btn-more-hover-color);
             transform: translateY(-1px);
         }
 
         /* ==================== 3. HEADER Y NAVEGACIÓN (Del teu codi) ==================== */
 
         header {
-            padding: 20px 40px; 
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #ffffff; 
+            background-color: #ffffff;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -178,16 +179,16 @@
             color: #000;
             font-size: 1rem;
             font-weight: 600;
-            position: relative; 
-            padding-bottom: 5px; 
+            position: relative;
+            padding-bottom: 5px;
             transition: color 0.3s ease;
         }
-        
+
         nav a.current-page {
             color: var(--secondary-color);
             font-weight: 700;
         }
-        
+
         nav a.current-page::after {
             width: 100%;
             background-color: var(--secondary-color);
@@ -198,11 +199,11 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 4px; 
+            height: 4px;
             bottom: 0;
             left: 0;
-            background-color: var(--primary-color); 
-            transition: width 0.3s ease-out; 
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-out;
             border-radius: 2px;
         }
 
@@ -219,8 +220,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background: var(--primary-color); 
-            color: #1f1f1f; 
+            background: var(--primary-color);
+            color: #1f1f1f;
             padding: 12px 25px;
             border-radius: 8px;
             border: none;
@@ -231,14 +232,14 @@
         }
 
         .btn-login svg {
-            fill: #1f1f1f; 
+            fill: #1f1f1f;
             height: 20px;
             width: 20px;
             transition: fill 0.3s ease;
         }
 
         .btn-login:hover {
-            background: var(--primary-hover); 
+            background: var(--primary-hover);
         }
 
         /* ==================== 5. ESTILS DE LA PÀGINA DE CURS INDIVIDUAL ==================== */
@@ -250,18 +251,16 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 80vh; 
-            margin: 0 20px; 
+            height: 80vh;
+            margin: 0 20px;
             border-radius: 15px;
             color: #fff;
             text-align: center;
-            
+
             /* Fondo con degradado + imagen */
-            background: linear-gradient( 
-                rgba(13, 55, 101, 0.3),
-                rgba(13, 55, 101, 0.95)
-            ), 
-            url("../img/classe.jpeg"); 
+            background: linear-gradient(rgba(13, 55, 101, 0.3),
+                    rgba(13, 55, 101, 0.95)),
+                url("../img/classe.jpeg");
 
             background-size: cover;
             background-position: center;
@@ -280,12 +279,13 @@
         }
 
         .small-professor-card {
+            width: 400px;
             display: flex;
             align-items: center;
             text-align: left;
             padding: 15px;
             box-shadow: var(--card-shadow);
-            background: #ffffff; 
+            background: #ffffff;
             color: var(--text-color);
             border-radius: 8px;
         }
@@ -333,30 +333,13 @@
         }
 
 
-        /* -------------------- 5.2. Maquetació Principal (Contingut + Sidebar) -------------------- */
+        /* -------------------- 5.2. Maquetació Principal (Contingut) -------------------- */
 
-        .course-main-layout {
-            display: flex;
-            gap: 40px;
+        /* Aquesta classe s'ha simplificat ja no defineix un layout de 2 columnes amb sidebar */
+        .main-content {
             padding-top: 60px;
-            padding-bottom: 80px;
-            align-items: flex-start; /* Els elements comencen a la part superior */
-        }
-
-        .course-content {
-            flex: 3; /* Ocupa 3 parts de l'espai */
-            min-width: 60%;
-        }
-
-        .course-sidebar {
-            flex: 2; /* Ocupa 2 parts de l'espai */
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px; 
-            position: sticky; /* Fa que la sidebar es quedi fixa al fer scroll */
-            top: 120px; 
-            padding-top: 10px;
+            padding-bottom: 40px;
+            /* S'ha escurçat el padding per deixar espai a la nova secció de valorar */
         }
 
         .content-title {
@@ -367,64 +350,60 @@
             padding-bottom: 5px;
         }
 
-        /* -------------------- 5.3. Targetes de la Sidebar (Formulari i Resum) -------------------- */
+        /* -------------------- 5.3. Secció Formulari + Imatge (NOVA) -------------------- */
 
-        .sidebar-section-title {
-            font-size: 1.4rem;
-            color: var(--secondary-color);
-            margin: 10px 0 0;
-            padding-top: 10px;
-            border-top: 3px solid var(--primary-color);
-        }
-
-        /* Targeta de Resum de Valoracions */
-        .review-summary-card {
+        .valorar-layout {
             display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            text-align: center;
-            border-radius: var(--card-radius);
-            box-shadow: var(--card-shadow);
+            justify-content: center;
+            /* Centra els dos elements horitzontalment */
+            align-items: flex-start;
+            /* Alinea'ls a dalt */
+            gap: 50px;
+            /* Espai entre el formulari i la imatge */
+            padding: 40px 0px 80px 0px;
         }
 
-        .summary-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .summary-score {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-
-        .summary-text {
-            font-size: 0.8rem;
-            color: #666;
-            text-transform: uppercase;
-        }
-
-        /* Targeta de Valoració (Formulari) */
+        /* Targeta de Valoració (Formulari) - RESTAURADA */
         .rating-review-card {
-            text-align: center;
-            border: 3px solid var(--primary-color);
             padding: var(--card-padding);
             border-radius: var(--card-radius);
             box-shadow: var(--card-shadow);
         }
 
+        .valorar-layout .rating-review-card {
+            width: 550px;
+            flex-shrink: 0;
+            text-align: left;
+            /* Alinea el contingut del formulari a l'esquerra */
+        }
+
+        /* Títol del Formulari - RESTAURADA */
         .rating-review-card .card-title {
             font-size: 1.5rem;
             color: var(--secondary-color);
             margin-bottom: 15px;
         }
 
-        /* Formulari */
+        .valorar-layout .rating-review-card .content-title {
+            text-align: center;
+        }
+
+        .valorar-layout img {
+            max-width: 550px;
+            height: auto;
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow-hover);
+            object-fit: cover;
+            align-self: flex-start;
+        }
+
+        /* Formulari - RESTAURADA */
         .form-group {
             margin-bottom: 15px;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid var(--border-color);
@@ -444,7 +423,7 @@
             margin-top: 10px;
         }
 
-        /* Estrelles de Valoració al Formulari */
+        /* Estrelles de Valoració al Formulari - RESTAURADA */
         .rating-form h4 {
             margin-top: 0;
             margin-bottom: 10px;
@@ -455,7 +434,8 @@
         .star-input {
             display: flex;
             justify-content: center;
-            direction: rtl; 
+            /* Centrem les estrelles */
+            direction: rtl;
             margin-bottom: 20px;
         }
 
@@ -471,9 +451,9 @@
             transition: color 0.2s;
         }
 
-        .star-input input[type="radio"]:checked ~ label, 
+        .star-input input[type="radio"]:checked~label,
         .star-input label:hover,
-        .star-input label:hover ~ label {
+        .star-input label:hover~label {
             color: var(--star-color);
         }
 
@@ -481,7 +461,7 @@
         /* ==================== 6. FOOTER (Del teu codi) ==================== */
 
         footer {
-            background-color: var(--secondary-color); 
+            background-color: var(--secondary-color);
             color: #fff;
             padding: 40px 20px 20px;
             font-size: 0.9rem;
@@ -508,7 +488,8 @@
             color: var(--primary-color);
         }
 
-        .footer-section p, .footer-section a {
+        .footer-section p,
+        .footer-section a {
             color: #ccc;
             text-decoration: none;
             line-height: 1.8;
@@ -528,46 +509,57 @@
             color: #999;
             font-size: 0.8rem;
         }
-        
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 60px 0 40px;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-color: var(--primary-color);
+            text-decoration-thickness: 4px;
+            text-underline-offset: 6px;
+        }
+
+
         /* ==================== 7. RESPONSIVE / MEDIA QUERIES ==================== */
 
         @media (max-width: 1000px) {
-            .course-main-layout {
-                flex-direction: column;
-                gap: 20px;
-                padding-top: 30px;
-            }
 
-            .course-sidebar {
-                position: static; 
-                width: 100%;
-                min-width: unset;
-                order: 2; 
-                padding-top: 0;
-            }
-
-            .course-content {
-                order: 1; 
-                min-width: 100%;
-            }
-            
             .hero {
                 min-height: 30vh;
                 padding: 40px 0;
             }
-            
+
             .professor-list {
                 flex-direction: column;
                 width: 100%;
                 padding: 0 20px;
             }
-            
+
             .small-professor-card {
                 width: auto;
+            }
+
+            /* NOVA REGLA RESPONSIVE PER AL FORMULARI I IMATGE */
+            .valorar-layout {
+                flex-direction: column;
+                /* Posa-ho en columna quan l'espai és reduït */
+                align-items: center;
+                /* Centra-ho horitzontalment */
+            }
+
+            .valorar-layout .rating-review-card,
+            .valorar-layout img {
+                width: 100%;
+                /* Ocupa tot l'ample del contenidor */
+                max-width: 100%;
             }
         }
 
         @media (max-width: 768px) {
+
             /* Header */
             header {
                 flex-direction: column;
@@ -584,7 +576,7 @@
             .logo img {
                 height: 60px;
             }
-            
+
             /* Footer */
             .footer-content {
                 flex-direction: column;
@@ -595,15 +587,16 @@
                 margin-bottom: 20px;
             }
         }
-        
+
         @media (max-width: 500px) {
             .course-hero-content h1 {
                 font-size: 1.8rem;
             }
         }
     </style>
-    
+
 </head>
+
 <body>
 
     <header>
@@ -613,12 +606,15 @@
 
         <nav aria-label="Navegació principal">
             <a href="index.html#cursos">Millors cursos</a>
-            <a href="index.html#profesores">Millors profes</a> 
+            <a href="index.html#profesores">Millors profes</a>
             <a href="index.html#valoraciones" class="current-page">Valoracions</a>
         </nav>
 
         <button class="btn-login" aria-label="Iniciar sesión">
-            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+                <path
+                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+            </svg>
             Login
         </button>
     </header>
@@ -632,136 +628,125 @@
             <div class="professor-list">
                 <article class="card professor-card small-professor-card">
                     <div class="professor-avatar" aria-label="Foto de Jordi Casals"></div>
-                    <div>
                         <h4 class="card-title">Jordi Casals</h4>
-                        <span class="professor-specialty">React & Frontend</span>
-                        <div class="rating rating-small" role="img" aria-label="Valoració del professor: 4.5 de 5 estrelles">★ ★ ★ ★ ☆</div>
-                    </div>
+                        <div class="rating rating-small" role="img"
+                            aria-label="Valoració del professor: 4.5 de 5 estrelles">★ ★ ★ ★ ☆</div>
                     <a href="#" class="btn-more btn-small">Veure perfil</a>
                 </article>
-                
+
                 <article class="card professor-card small-professor-card">
                     <div class="professor-avatar" aria-label="Foto de Marta Soler"></div>
-                    <div>
                         <h4 class="card-title">Marta Soler</h4>
-                        <span class="professor-specialty">Node.js & Backend</span>
-                        <div class="rating rating-small" role="img" aria-label="Valoració del professor: 5 de 5 estrelles">★ ★ ★ ★ ★</div>
-                    </div>
+                        <div class="rating rating-small" role="img"
+                            aria-label="Valoració del professor: 5 de 5 estrelles">★ ★ ★ ★ ★</div>
                     <a href="#" class="btn-more btn-small">Veure perfil</a>
                 </article>
             </div>
         </section>
 
-        <section class="container course-main-layout">
-            
-            <aside class="course-sidebar">
-                
-                <h3 class="sidebar-section-title">⭐ Resum Valoracions</h3>
-                <article class="card review-summary-card">
-                    <div class="summary-item">
-                        <span class="summary-score">4.5</span>
-                        <span class="summary-text">Nota Mitjana</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="summary-score">450</span>
-                        <span class="summary-text">Total Valoracions</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="summary-score">98%</span>
-                        <span class="summary-text">Recomanen</span>
-                    </div>
-                </article>
-                
-                <article class="card rating-review-card">
-                    <h3 class="card-title">✨ La Teva Valoració del Curs</h3>
-                    
-                    <form action="#" method="POST" class="rating-form">
-                        <h4>La teva nota (obligatori):</h4>
-                        <div class="star-input" aria-label="Selecciona la teva valoració">
-                            <input type="radio" id="star5-r" name="rating" value="5" required><label for="star5-r" title="5 estrelles">★</label>
-                            <input type="radio" id="star4-r" name="rating" value="4"><label for="star4-r" title="4 estrelles">★</label>
-                            <input type="radio" id="star3-r" name="rating" value="3"><label for="star3-r" title="3 estrelles">★</label>
-                            <input type="radio" id="star2-r" name="rating" value="2"><label for="star2-r" title="2 estrelles">★</label>
-                            <input type="radio" id="star1-r" name="rating" value="1"><label for="star1-r" title="1 estrella">★</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="comment" placeholder="Deixa el teu comentari de valoració aquí..." required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="El teu Nom Complet (públic)" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Correu Electrònic (privat)" required>
-                        </div>
-                        
-                        <button type="submit" class="btn-more full-width-btn">Enviar Valoració</button>
-                        
-                        <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">*El teu correu electrònic no es farà públic.</p>
-                    </form>
-                </article>
-                
-            </aside>
-            
-            <div class="course-content">
-                
-                <hr class="divider">
+        <section class="container main-content">
 
-                <section id="testimonis-detallats">
-                    <h2 class="content-title">Opinió dels Alumnes</h2>
-                    
-                    <div class="reviews-list detailed-reviews-list">
-                        <article class="review-item">
-                            <div class="avatar-placeholder" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-                            </div>
-                            <div class="review-content">
-                                <strong>Anna Claret</strong>
-                                <small>Alumna de la 2a Edició</small>
-                                <p class="review-text">"El curs és intens, però val la pena! Els projectes pràctics t'obliguen a aplicar tot el que aprens. El mòdul de Node.js amb la Marta és brutal."</p>
-                            </div>
-                            <div class="review-rating" role="img" aria-label="Valoració: 5 de 5 estrelles">
-                                <span class="rating-small">★ ★ ★ ★ ★</span>
-                            </div>
-                        </article>
+            <section id="testimonis-detallats">
+                <h2 class="section-title">Opinió dels Alumnes</h2>
 
-                        <article class="review-item">
-                            <div class="avatar-placeholder" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-                            </div>
-                            <div class="review-content">
-                                <strong>Marc Bosch</strong>
-                                <small>Alumne de la 1a Edició</small>
-                                <p class="review-text">"Vaig començar sense experiència prèvia en React i ara puc construir aplicacions completes. El Jordi t'acompanya en tot el procés i resol els dubtes ràpidament."</p>
-                            </div>
-                            <div class="review-rating" role="img" aria-label="Valoració: 4 de 5 estrelles">
-                                <span class="rating-small">★ ★ ★ ★ ☆</span>
-                            </div>
-                        </article>
-                        
-                        <article class="review-item">
-                            <div class="avatar-placeholder" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-                            </div>
-                            <div class="review-content">
-                                <strong>Laia Fàbregas</strong>
-                                <small>Alumna de l'Edició Actual</small>
-                                <p class="review-text">"Molt ben estructurat, especialment el tema de bases de dades amb MongoDB. Un 'must-do' si vols treballar amb el MERN Stack."</p>
-                            </div>
-                            <div class="review-rating" role="img" aria-label="Valoració: 5 de 5 estrelles">
-                                <span class="rating-small">★ ★ ★ ★ ★</span>
-                            </div>
-                        </article>
-
-                        <div style="text-align: center; margin-top: 30px;">
-                            <a href="#" class="btn-more">Carregar 447 opinions més</a>
+                <div class="reviews-list detailed-reviews-list">
+                    <article class="review-item">
+                        <div class="avatar-placeholder" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path
+                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+                            </svg>
                         </div>
+                        <div class="review-content">
+                            <strong>Anna Claret</strong>
+                            <small>Alumna de la 2a Edició</small>
+                            <p class="review-text">"El curs és intens, però val la pena! Els projectes pràctics
+                                t'obliguen a aplicar tot el que aprens. El mòdul de Node.js amb la Marta és brutal."
+                            </p>
+                        </div>
+                        <div class="review-rating" role="img" aria-label="Valoració: 5 de 5 estrelles">
+                            <span class="rating-small">★ ★ ★ ★ ★</span>
+                        </div>
+                    </article>
+
+                    <article class="review-item">
+                        <div class="avatar-placeholder" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path
+                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+                            </svg>
+                        </div>
+                        <div class="review-content">
+                            <strong>Marc Bosch</strong>
+                            <small>Alumne de la 1a Edició</small>
+                            <p class="review-text">"Vaig començar sense experiència prèvia en React i ara puc
+                                construir aplicacions completes. El Jordi t'acompanya en tot el procés i resol els
+                                dubtes ràpidament."</p>
+                        </div>
+                        <div class="review-rating" role="img" aria-label="Valoració: 4 de 5 estrelles">
+                            <span class="rating-small">★ ★ ★ ★ ☆</span>
+                        </div>
+                    </article>
+
+                    <article class="review-item">
+                        <div class="avatar-placeholder" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path
+                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+                            </svg>
+                        </div>
+                        <div class="review-content">
+                            <strong>Laia Fàbregas</strong>
+                            <small>Alumna de l'Edició Actual</small>
+                            <p class="review-text">"Molt ben estructurat, especialment el tema de bases de dades amb
+                                MongoDB. Un 'must-do' si vols treballar amb el MERN Stack."</p>
+                        </div>
+                        <div class="review-rating" role="img" aria-label="Valoració: 5 de 5 estrelles">
+                            <span class="rating-small">★ ★ ★ ★ ★</span>
+                        </div>
+                    </article>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#" class="btn-more">Carregar 447 opinions més</a>
                     </div>
-                </section>
-                
-            </div>
-            
+                </div>
+            </section>
+        </section>
+
+
+        <section class="container valorar-layout">
+
+            <article class="card rating-review-card">
+                <h2 class="content-title" style="border:none;">Valora el teu Curs</h2>
+
+                <form action="#" method="POST" class="rating-form">
+                    <h4>La teva nota (obligatori):</h4>
+                    <div class="star-input" aria-label="Selecciona la teva valoració">
+                        <input type="radio" id="star5-r" name="rating" value="5" required><label for="star5-r"
+                            title="5 estrelles">★</label>
+                        <input type="radio" id="star4-r" name="rating" value="4"><label for="star4-r"
+                            title="4 estrelles">★</label>
+                        <input type="radio" id="star3-r" name="rating" value="3"><label for="star3-r"
+                            title="3 estrelles">★</label>
+                        <input type="radio" id="star2-r" name="rating" value="2"><label for="star2-r"
+                            title="2 estrelles">★</label>
+                        <input type="radio" id="star1-r" name="rating" value="1"><label for="star1-r"
+                            title="1 estrella">★</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="comment" placeholder="Deixa el teu comentari de valoració aquí..."
+                            required></textarea>
+                    </div>
+
+
+                    <button type="submit" class="btn-more full-width-btn">Enviar Valoració</button>
+
+                    <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">*El teu correu electrònic no es farà
+                        públic.</p>
+                </form>
+            </article>
+            <img src="../img/classe.jpeg" alt="Imatge d'una classe amb projectes de desenvolupament web" width="500">
         </section>
 
     </main>
@@ -796,4 +781,5 @@
         </div>
     </footer>
 </body>
+
 </html>
