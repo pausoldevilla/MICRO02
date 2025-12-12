@@ -1,524 +1,394 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700;800&display=swap');
+/* Importa Montserrat o Playfair/Inter según el diseño base que prefieras. Usaré Playfair/Inter por ser más completo en el CSS que proporcionaste. */
 
-/* ==================== VARIABLES CSS ==================== */
+/* ==================== 1. VARIABLES CSS (Custom Properties) ==================== */
 :root {
-  --primary-color: #F4D35E;
-  --primary-hover: #eeaf02;
-  --secondary-color: #0D3B66;
-  --accent1-color: #EE964B;
-  --accent2-color: #F95738;
-  --light-yellow: #FAF0CA;
-  --text-gray: #6B6B6B;
-  --white: #FFFFFF;
-  --text-dark: #080705;
-  --text-color: #333;
-  --border-color: #ddd;
+    /* Colores Principales (Combinación de tus CSS) */
+    --primary-color: #F4D35E; /* Amarillo/Dorado */
+    --primary-hover: #eeaf02; 
+    --secondary-color: #0D3B66; /* Azul oscuro */
+    --accent1-color: #EE964B; /* Naranja medio */
+    --accent2-color: #F95738; /* Naranja/Rojo */
 
-  --star-color: #F4D35E;
-  --btn-more-color: #EE964B;
-  --btn-more-hover-color: #F95738;
+    /* Textos y Bordes */
+    --text-color: #333;
+    --text-dark: #080705;
+    --text-gray: #6B6B6B;
+    --border-color: #ddd;
+    --white: #FFFFFF;
+    
+    /* Tipografía */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Componentes Comunes */
+    --star-color: var(--primary-color);
+    --btn-more-color: var(--accent1-color); 
+    --btn-more-hover-color: var(--accent2-color); 
 
-  --card-padding: 25px;
-  --card-radius: 12px;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
-
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+    /* Diseño de Tarjetas (Cards) */
+    --card-padding: 25px; 
+    --card-radius: 12px;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15); 
 }
 
-/* ==================== BASE STYLES ==================== */
+/* ==================== 2. ESTILOS BASE / RESET ==================== */
+
 body {
-  margin: 0;
-  font-family: var(--font-body);
-  background: #ffffff;
-  color: var(--text-color);
-  font-size: 16px;
-  font-weight: 400;
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--text-color);
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 h1 {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 56px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 56px;
 }
 
 h2 {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 42px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 42px;
 }
 
 h3 {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 24px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 24px;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* ==================== HEADER & NAVIGATION ==================== */
-header {
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ffffff;
-}
-
-.logo img {
-  height: 80px;
-}
-
-nav {
-  display: flex;
-  gap: 40px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #000;
-  font-size: 1rem;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 4px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: width 0.3s ease-out;
-  border-radius: 2px;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-nav a:hover {
-  color: var(--secondary-color);
-}
-
-.btn-login {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--primary-color);
-  color: #1f1f1f;
-  padding: 12px 25px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.btn-login svg {
-  fill: #1f1f1f;
-  height: 20px;
-  width: 20px;
-  transition: fill 0.3s ease;
-}
-
-.btn-login:hover {
-  background: #ffd700;
-}
-
-.btn-logout {
-  background: var(--accent2-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 8px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-logout:hover {
-  background: #d94426;
-  transform: scale(1.1);
-}
-
-/* ==================== HERO SECTION ==================== */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  margin: 0px 20px;
-  border-radius: 15px;
-  color: #fff;
-  text-align: center;
-  background: linear-gradient(rgba(13, 55, 101, 0.3), rgba(13, 55, 101, 0.95)), url("../img/classe.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-  max-width: 800px;
-}
-
-.hero p {
-  max-width: 620px;
-  margin: 0 auto 30px;
-  font-size: 1rem;
-  opacity: 0.95;
-  line-height: 1.6rem;
-}
-
-.hero-inputs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.hero-inputs input {
-  width: 700px;
-  flex-grow: 1;
-  padding: 20px 20px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-}
-
-.hero-inputs button {
-  padding: 18px 40px;
-  background: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #333;
-  transition: all 0.3s ease;
-}
-
-.hero-inputs button:hover {
-  transform: translateY(-3px);
-}
-
-/* ==================== SECTIONS ==================== */
+/* Título de Sección Común */
 .section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin: 60px 0 40px;
-  font-weight: 700;
-  color: black;
-  text-decoration: underline;
-  text-decoration-color: var(--primary-color);
-  text-decoration-thickness: 4px;
-  text-underline-offset: 6px;
+    text-align: center;
+    font-size: 2rem;
+    margin: 60px 0 40px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
 }
 
-/* ==================== CARDS ==================== */
-.grid {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding-bottom: 60px;
-}
-
-.card {
-  width: calc((100% - 300px) / 3);
-  padding: var(--card-padding);
-  background: #fff;
-  border-radius: var(--card-radius);
-  text-align: center;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover,
-.review-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--card-shadow-hover);
-}
-
+/* Divisor Común */
 .divider {
-  width: 60%;
-  height: 2px;
-  background: var(--border-color);
-  margin: 15px auto;
+    border: none;
+    height: 3px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    margin: 15px 0;
 }
 
+/* Puntuación (Rating) Común */
 .rating {
-  font-size: 1.2rem;
-  color: var(--star-color);
-  margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: var(--star-color);
+    margin-bottom: 15px;
 }
-
 .rating-small {
-  font-size: 0.9rem;
-  color: var(--star-color);
-  margin-top: 5px;
-  display: block;
+    font-size: 0.9rem;
+    color: var(--star-color);
+    display: block;
 }
 
+/* Botón "Ver Más" Común */
 .btn-more {
-  background: var(--btn-more-color);
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: 700;
-  color: #333;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s ease;
+    background: var(--btn-more-color); 
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
 .btn-more:hover {
-  background-color: var(--btn-more-hover-color);
+    background-color: var(--btn-more-hover-color); 
+    transform: translateY(-1px);
 }
 
-/* ==================== PROFESSOR CARDS ==================== */
-.professor-card {
-  width: calc((100% - 300px) / 3);
-  padding: var(--card-padding);
-  background: #fff;
-  border-radius: var(--card-radius);
-  text-align: center;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ==================== 3. HEADER & NAVIGATION ==================== */
+header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    /* Puedes añadir position: sticky y box-shadow si quieres que flote */
 }
 
-.professor-avatar {
-  width: 100px;
-  height: 100px;
-  background: #eee;
-  border-radius: 8px;
-  margin: 0 auto 15px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
+.logo img {
+    height: 80px;
 }
 
-.professor-card hr {
-  border: none;
-  height: 1px;
-  background-color: var(--border-color);
-  border-radius: 4px;
-  margin: 15px 0;
+nav {
+    display: flex;
+    gap: 40px;
 }
 
-.professor-card .card-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 5px;
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
-.professor-specialty {
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-  display: block;
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out;
+    border-radius: 2px;
 }
 
-.professor-description {
-  font-size: 0.8rem;
-  color: #666;
-  line-height: 1.4;
-  text-align: left;
-  margin-bottom: 0;
-  overflow: hidden;
+nav a:hover::after {
+    width: 100%;
 }
 
-.professor-card .rating {
-  margin-top: 10px;
-  margin-bottom: 0;
+nav a:hover {
+    color: var(--secondary-color);
 }
 
-.professor-card .divider {
-  display: none;
+.btn-login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-/* ==================== REVIEWS ==================== */
+.btn-login svg {
+    fill: var(--text-dark);
+    height: 20px;
+    width: 20px;
+    transition: fill 0.3s ease;
+}
+
+.btn-login:hover {
+    background: var(--primary-hover);
+}
+
+.btn-logout {
+    background: var(--accent2-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-logout:hover {
+    background: #d94426;
+    transform: scale(1.1);
+}
+
+/* ==================== 4. TARJETAS DE REVISIÓN (Reviews) ==================== */
+/* Usado en home y en curso individual */
+
 .reviews-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 80px;
 }
 
 .review-item {
-  display: flex;
-  align-items: flex-start;
-  padding: 15px;
-  border-radius: var(--card-radius);
-  background: #fdfdfd;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: var(--card-radius);
+    background: #fdfdfd;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .review-item .avatar-placeholder {
-  width: 50px;
-  height: 50px;
-  background: #eee;
-  border-radius: 8px;
-  margin-right: 15px;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color); 
+    border-radius: 8px; 
+    margin-right: 15px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .review-item .avatar-placeholder svg {
-  fill: #fff;
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    fill: var(--secondary-color); 
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .review-content {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .review-content strong {
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 2px;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 2px;
 }
 
 .review-content small {
-  display: block;
-  font-size: 0.8rem;
-  color: #999;
-  margin-bottom: 5px;
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.review-text {
+    font-size: 0.8rem; 
+    color: #666;
+    margin: 0;
 }
 
 .review-rating {
-  text-align: right;
-  margin-left: 15px;
-  flex-shrink: 0;
+    text-align: right;
+    margin-left: 15px;
+    flex-shrink: 0;
 }
 
-/* ==================== FOOTER ==================== */
+/* ==================== 5. FOOTER ==================== */
 footer {
-  background-color: var(--secondary-color);
-  color: #fff;
-  padding: 40px 20px;
-  font-size: 0.9rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 40px 20px;
+    font-size: 0.9rem;
 }
 
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .footer-section {
-  flex: 1;
-  min-width: 200px;
+    flex: 1;
+    min-width: 200px;
 }
 
 .footer-section h4 {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  font-weight: 700;
-  color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
 .footer-section p,
 .footer-section a {
-  color: #ccc;
-  text-decoration: none;
-  line-height: 1.8;
-  display: block;
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.8;
+    display: block;
 }
 
 .footer-section a:hover {
-  color: #fff;
-  text-decoration: underline;
+    color: var(--white);
+    text-decoration: underline;
 }
 
 .footer-bottom {
-  text-align: center;
-  border-top: 1px solid #1f5087;
-  padding-top: 20px;
-  margin-top: 40px;
-  color: #999;
-  font-size: 0.8rem;
+    text-align: center;
+    border-top: 1px solid #1f5087;
+    padding-top: 20px;
+    margin-top: 40px;
+    color: #999;
+    font-size: 0.8rem;
 }
 
-/* ==================== RESPONSIVE ==================== */
+/* ==================== 6. RESPONSIVE GENERAL ==================== */
+
 @media (max-width: 1024px) {
-  h1 {
-    font-size: 48px;
-  }
-
-  h2 {
-    font-size: 38px;
-  }
-
-  h3 {
-    font-size: 22px;
-  }
+    h1 { font-size: 48px; }
+    h2 { font-size: 38px; }
+    h3 { font-size: 22px; }
 }
 
 @media (max-width: 768px) {
+    /* Tipografía */
+    h1 { font-size: 36px; }
+    h2 { font-size: 32px; }
+    h3 { font-size: 20px; }
 
-  /* Typography */
-  h1 {
-    font-size: 36px;
-  }
+    /* Header */
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
 
-  h2 {
-    font-size: 32px;
-  }
+    nav {
+        gap: 20px;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-  h3 {
-    font-size: 20px;
-  }
+    .logo img {
+        height: 60px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+    }
 
-  /* Header */
-  header {
-    flex-direction: column;
-    padding: 15px 20px;
-  }
-
-  nav {
-    gap: 20px;
-    margin: 15px 0;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .logo img {
-    height: 60px;
-  }
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
 }

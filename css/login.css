@@ -1,3 +1,8 @@
+/* Importamos el CSS general para heredar todos los estilos base, header, footer, etc. */
+@import url('./general.css'); 
+
+/* ==================== ESTILOS DE LOGIN / REGISTRO ==================== */
+
 body {
     display: flex;
     flex-direction: column;
@@ -18,6 +23,7 @@ body {
     margin: 0 20px;
 }
 
+/* Columna de Imagen */
 .login-image {
     flex: 1;
     background: url('../img/classe.jpeg') no-repeat center center/cover;
@@ -41,13 +47,13 @@ body {
 .login-image-content {
     position: relative;
     z-index: 2;
-    color: white;
+    color: var(--white);
     text-align: center;
     padding: 20px;
 }
 
 .login-image-content h1 {
-    color: #fff;
+    color: var(--white);
     margin-bottom: 20px;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -58,9 +64,10 @@ body {
     margin: 0 auto;
 }
 
+/* Columna de Formulario */
 .login-card {
     flex: 1;
-    background: white;
+    background: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +75,7 @@ body {
 }
 
 .login-header h2 {
-    color: black;
+    color: var(--text-dark);
     margin-bottom: 10px;
     text-decoration: underline;
     text-decoration-color: var(--primary-color);
@@ -113,7 +120,7 @@ body {
 }
 
 .input-group input:focus {
-    background: #fff;
+    background: var(--white);
     border-color: var(--primary-color);
     box-shadow: 0 0 0 4px rgba(13, 59, 102, 0.1);
     outline: none;
@@ -150,7 +157,7 @@ body {
     letter-spacing: 1px;
     width: 100%;
     background: var(--primary-color);
-    color: #1f1f1f;
+    color: var(--text-dark);
     border: none;
     border-radius: 10px;
     font-weight: 700;
@@ -160,6 +167,7 @@ body {
 
 .btn-submit:hover {
     transform: translateY(-2px);
+    background: var(--primary-hover);
 }
 
 .login-footer-link {
