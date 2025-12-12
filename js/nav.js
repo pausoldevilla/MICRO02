@@ -1,19 +1,27 @@
 window.onload = () => {
     // Revisar si hay algun usuario que ha iniciado session para poner el boton del login con el nombre del user
     const userLogged = JSON.parse(localStorage.getItem('userLogged'));
-    console.log("UserLogged ", userLogged);
+
     if (userLogged) {
         const btnLogin = document.getElementById('btnLogin');
         
         btnLogin.removeAttribute('onclick');
-
         btnLogin.style.cursor = 'default';
-
-        btnLogin.innerHTML = `
+        // Comprobamos si tiene avatar
+        let iconoUsuario;
+        if (userLogged.avatar) {
+            // Si tiene, creamos una etiqueta img. Ajusto el estilo para que sea redonda y del mismo tamaño.
+            iconoUsuario = `<img src="${userLogged.avatar}" alt="Avatar" style="width: 30px; height: 30px; border-radius: 8px; object-fit: cover;">`;
+        } else {
+            // Si NO tiene, usamos el SVG de siempre
+            iconoUsuario = `
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
-                    <path
-                        d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+                    <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
                 </svg>
+            `;
+        }
+        btnLogin.innerHTML = `
+                ${iconoUsuario}
                 ${userLogged.username}
                 <button class="btn-logout" onclick="logout()">X</button>
         `;
