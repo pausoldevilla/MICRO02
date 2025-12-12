@@ -78,7 +78,6 @@
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
     padding-bottom: 60px;
 }
 
@@ -97,8 +96,6 @@
 /* Calculo para 3 columnas en escritorio */
 @media (min-width: 1000px) {
     .card {
-        width: calc((100% - 60px) / 3); /* (100% - 2*gap) / 3 */
-        max-width: none;
     }
 }
 
