@@ -8,9 +8,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/curso.css">
+    <script src="../js/nav.js"></script>
 
-
-    <style>
+    <!-- <style>
         /* ==================== 1. VARIABLES CSS (Custom Properties) ==================== */
 
 
@@ -571,7 +572,7 @@
                 font-size: 1.8rem;
             }
         }
-    </style>
+    </style> -->
 
 </head>
 
@@ -584,7 +585,7 @@
             </a>
         </div>
 
-        <nav aria-label="Navegació principal">
+        <nav>
             <a href="../index.html">Inicio</a>
 
             <a href="../index.html#cursos">Mejores Cursos</a>
@@ -592,7 +593,7 @@
             <a href="../index.html#valoraciones">Valoraciones</a>
         </nav>
 
-        <button class="boto-inici-sessio" aria-label="Iniciar sesión">
+        <button class="boto-inici-sessio" id="btnLogin" onclick="window.location.href = '../html/login.html';">
             <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
                 <path
                     d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
@@ -605,24 +606,9 @@
 
         <section class="seccio-hero">
             <div class="espai-limitat contingut-hero-curs">
-                <h1>Desenvolupament Web Avançat: React i Node.js</h1>
+                <h1 id="hero-title">Desenvolupament Web Avançat: React i Node.js</h1>
             </div>
-            <div class="llista-professors">
-                <article class="tarja professor-tarja targeta-professor-petita">
-                    <div class="professor-icona" aria-label="Foto de Jordi Casals"></div>
-                    <h4 class="titol-targeta">Jordi Casals</h4>
-                    <div class="nota-estrelles nota-petita" role="img"
-                        aria-label="Valoració del professor: 4.5 de 5 estrelles">★ ★ ★ ★ ☆</div>
-                    <a href="#" class="boto-accio btn-small">Ver perfil</a>
-                </article>
-
-                <article class="tarja professor-tarja targeta-professor-petita">
-                    <div class="professor-icona" aria-label="Foto de Marta Soler"></div>
-                    <h4 class="titol-targeta">Marta Soler</h4>
-                    <div class="nota-estrelles nota-petita" role="img"
-                        aria-label="Valoració del professor: 5 de 5 estrelles">★ ★ ★ ★ ★</div>
-                    <a href="#" class="boto-accio btn-small">Ver perfil</a>
-                </article>
+            <div class="llista-professors" id="llista-professors">
             </div>
         </section>
 
@@ -631,66 +617,8 @@
             <section id="testimonis-detallats">
                 <h2 class="titol-apartat">Opinió dels Alumnes</h2>
 
-                <div class="llista-opinions llista-opinions-detallades">
-                    <article class="opinio-detallada">
-                        <div class="avatar-buit" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                <path
-                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-                            </svg>
-                        </div>
-                        <div class="contingut-opinio">
-                            <strong>Anna Claret</strong>
-                            <small>Alumna de la 2a Edició</small>
-                            <p class="text-opinio">"El curs és intens, però val la pena! Els projectes pràctics
-                                t'obliguen a aplicar tot el que aprens. El mòdul de Node.js amb la Marta és brutal."
-                            </p>
-                        </div>
-                        <div class="nota-opinio" role="img" aria-label="Valoració: 5 de 5 estrelles">
-                            <span class="nota-petita">★ ★ ★ ★ ★</span>
-                        </div>
-                    </article>
+                <div class="llista-opinions llista-opinions-detallades" id="llista-opinions">
 
-                    <article class="opinio-detallada">
-                        <div class="avatar-buit" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                <path
-                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-                            </svg>
-                        </div>
-                        <div class="contingut-opinio">
-                            <strong>Marc Bosch</strong>
-                            <small>Alumne de la 1a Edició</small>
-                            <p class="text-opinio">"Vaig començar sense experiència prèvia en React i ara puc
-                                construir aplicacions completes. El Jordi t'acompanya en tot el procés i resol els
-                                dubtes ràpidament."</p>
-                        </div>
-                        <div class="nota-opinio" role="img" aria-label="Valoració: 4 de 5 estrelles">
-                            <span class="nota-petita">★ ★ ★ ★ ☆</span>
-                        </div>
-                    </article>
-
-                    <article class="opinio-detallada">
-                        <div class="avatar-buit" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                <path
-                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-                            </svg>
-                        </div>
-                        <div class="contingut-opinio">
-                            <strong>Laia Fàbregas</strong>
-                            <small>Alumna de l'Edició Actual</small>
-                            <p class="text-opinio">"Molt ben estructurat, especialment el tema de bases de dades amb
-                                MongoDB. Un 'must-do' si vols treballar amb el MERN Stack."</p>
-                        </div>
-                        <div class="nota-opinio" role="img" aria-label="Valoració: 5 de 5 estrelles">
-                            <span class="nota-petita">★ ★ ★ ★ ★</span>
-                        </div>
-                    </article>
-
-                    <div style="text-align: center; margin-top: 30px;">
-                        <a href="#" class="boto-accio">Carregar 447 opinions més</a>
-                    </div>
                 </div>
             </section>
         </section>
@@ -703,7 +631,7 @@
 
                 <form action="#" method="POST" class="formulari-valoracio">
                     <h4>La teva nota (obligatori):</h4>
-                    <div class="selector-estrelles" aria-label="Selecciona la teva valoració">
+                    <div class="selector-estrelles">
                         <input type="radio" id="star5-r" name="rating" value="5" required><label for="star5-r"
                             title="5 estrelles">★</label>
                         <input type="radio" id="star4-r" name="rating" value="4"><label for="star4-r"
@@ -722,7 +650,8 @@
                     </div>
 
 
-                    <button type="submit" class="boto-accio boto-ample-complet">Enviar Valoració</button>
+                    <button type="submit" class="boto-accio boto-ample-complet" onclick="valorarCurso(event)">Enviar
+                        Valoració</button>
 
                     <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">*El teu correu electrònic no es farà
                         públic.</p>
@@ -765,6 +694,7 @@
             &copy; 2025 Jaume Viladoms. Tots els drets reservats.
         </div>
     </footer>
+    <script src="../js/curso.js"></script>
 </body>
 
 </html>

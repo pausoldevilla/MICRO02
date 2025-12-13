@@ -4,7 +4,7 @@ window.onload = () => {
 
     if (userLogged) {
         const btnLogin = document.getElementById('btnLogin');
-        
+
         btnLogin.removeAttribute('onclick');
         btnLogin.style.cursor = 'default';
         // Comprobamos si tiene avatar
