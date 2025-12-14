@@ -52,7 +52,7 @@ function cargarInfo() {
 
             let foto;
             // 
-            if(avatar === 'avatar-buit') {
+            if (avatar === 'avatar-buit') {
                 foto = `
                     <div class="avatar-buit">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
@@ -60,8 +60,8 @@ function cargarInfo() {
                                 d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
                         </svg>
                     </div>`;
-            }else{
-                
+            } else {
+
                 foto = `
                     <div class="avatar">
                         <img src="${avatar}" alt="Avatar">
@@ -123,23 +123,23 @@ function valorarCurso() {
     // En el caso de que el usuario no esté logueado, se le asigna el nombre 'Anonim'
     const usuarioNombre = userLogged ? userLogged.username : 'Anonim';
 
-    
+
     const ratingInput = document.getElementsByName('rating');
-    
+
     if (!ratingInput) {
         alert("Si us plau, selecciona una puntuació (estrelles).");
         return;
     }
 
     let estrellas;
-    
+
     ratingInput.forEach(input => {
         if (input.checked) {
             estrellas = parseInt(input.value);
         }
     });
 
-    
+
     const commentInput = document.getElementById('comment');
     const comentario = commentInput.value;
 
@@ -177,7 +177,7 @@ function valorarCurso() {
 
     // Guardar también el curso seleccionado actualizado
     localStorage.setItem('cursoSeleccionado', JSON.stringify(cursoSeleccionado));
-    
+
     window.location.reload();
 }
 
@@ -196,7 +196,7 @@ function calcularMediaEstrellas(curso) {
         numValoraciones++;
     });
 
-    const media =  parseInt(estrellasTotales / numValoraciones).toFixed(2);
+    const media = parseInt(estrellasTotales / numValoraciones).toFixed(2);
     console.log("Media: ", media);
 
     return media;

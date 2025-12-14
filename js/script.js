@@ -281,3 +281,57 @@ function ObtenerCurso(nombreCurso) {
 
     window.location.href = './html/curso.html';
 }
+
+// Funcion para cuando desde el buscador se quiere buscar un curso
+function buscarCurso() {
+    const texto = document.getElementById('buscadorInput').value.trim().toLowerCase();
+    if (!texto) {
+        alert("Escriu el nom d'un curs per buscar.");
+        return;
+    }
+
+    const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+
+    // Se busca por cada curso aquellos que incluyan lo que se ha puesto en el input
+    // Se hace de esta forma, es decir con el include por si no se ponen palabras completas
+    const cursoEncontrado = cursos.find(curso => curso.nombre.toLowerCase().includes(texto));
+
+    if (cursoEncontrado) {
+        // Guardamos el curso en localStorage
+        localStorage.setItem('cursoSeleccionado', JSON.stringify(cursoEncontrado));
+        // Redirigimos a la página del curso
+        window.location.href = './html/curso.html';
+    } else {
+        alert("No s'ha trobat cap curs amb aquest nom.");
+    }
+}
+
+function mostrarSugerencias() {
+    const texto = document.getElementById('buscadorInput').value.toLowerCase();
+    const sugerenciasDiv = document.getElementById('sugerencias');
+    sugerenciasDiv.innerHTML = '';
+
+    if (!texto) return;
+
+    const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+    const resultados = cursos.filter(curso =>
+        curso.nombre.toLowerCase().includes(texto)
+    );
+
+     resultados.forEach(curso => {
+        sugerenciasDiv.innerHTML += `
+            <div onclick="seleccionSugerencia('${curso.nombre}')">
+                ${curso.nombre}
+            </div>
+        `;
+    });
+
+}
+
+function seleccionSugerencia(nombreCurso) {
+    //Cuando se selecciona un curso, obtenemos el input, y le asiignamos el valor con el nombre del curso seleccionado desde las sugerencias
+    const buscador = document.getElementById('buscadorInput');
+    buscador.value = nombreCurso;
+    // Después se resetean las sugerencias, es decir se dejan vacias
+    document.getElementById('sugerencias').innerHTML = '';
+}

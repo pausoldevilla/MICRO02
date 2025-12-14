@@ -45,8 +45,9 @@
             <h1>Descubre los mejores cursos con los mejores profesionales</h1>
 
             <div class="hero-inputs">
-                <input type="text" placeholder="Nom del curs" aria-label="Campo de búsqueda de cursos">
-                <button aria-label="Buscar cursos">Buscar</button>
+                <input type="text" id="buscadorInput" placeholder="Nom del curs" oninput="mostrarSugerencias()">
+                <button onclick="buscarCurso()">Buscar</button>
+                <div id="sugerencias"></div>
             </div>
         </section>
 
