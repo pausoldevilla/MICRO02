@@ -629,7 +629,7 @@
             <article class="tarja targeta-valoracio-formulari">
                 <h2 class="titol-apartat" style="border:none;">Valora el teu Curs</h2>
 
-                <form action="#" method="POST" class="formulari-valoracio">
+                <div class="formulari-valoracio">
                     <h4>La teva nota (obligatori):</h4>
                     <div class="selector-estrelles">
                         <input type="radio" id="star5-r" name="rating" value="5" required><label for="star5-r"
@@ -650,12 +650,12 @@
                     </div>
 
 
-                    <button type="submit" class="boto-accio boto-ample-complet" onclick="valorarCurso(event)">Enviar
+                    <button type="submit" class="boto-accio boto-ample-complet" onclick="valorarCurso()">Enviar
                         Valoració</button>
 
                     <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">*El teu correu electrònic no es farà
                         públic.</p>
-                </form>
+                </div>
             </article>
             <img src="../img/classe.jpeg" alt="Imatge d'una classe amb projectes de desenvolupament web" width="500">
         </section>

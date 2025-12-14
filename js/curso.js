@@ -126,24 +126,30 @@ function obtenerFotoUser(nombreUser) {
     return usuario.avatar || 'avatar-buit';
 }
 
-function valorarCurso(e) {
-    e.preventDefault();
+function valorarCurso() {
 
-    // 1. Get User
     const userLogged = JSON.parse(localStorage.getItem('userLogged'));
 
-    // Default to 'Anònim' if not logged in
-    const usuarioNombre = userLogged ? userLogged.username : 'Anònim';
+    // En el caso de que el usuario no esté logueado, se le asigna el nombre 'Anonim'
+    const usuarioNombre = userLogged ? userLogged.username : 'Anonim';
 
-    // 2. Get Rating
-    const ratingInput = document.querySelector('input[name="rating"]:checked');
+    
+    const ratingInput = document.getElementsByName('rating');
+    
     if (!ratingInput) {
         alert("Si us plau, selecciona una puntuació (estrelles).");
         return;
     }
-    const estrellas = parseInt(ratingInput.value);
 
-    // 3. Get Comment
+    let estrellas;
+    
+    ratingInput.forEach(input => {
+        if (input.checked) {
+            estrellas = parseInt(input.value);
+        }
+    });
+
+    
     const commentInput = document.getElementById('comment');
     const comentario = commentInput.value;
 
@@ -152,52 +158,47 @@ function valorarCurso(e) {
         return;
     }
 
-    // 4. Create Review Object
     const nuevaValoracion = {
         usuario: usuarioNombre,
         comentario: comentario,
         estrellas: estrellas
     };
 
-    // 5. Save to LocalStorage
     const cursos = JSON.parse(localStorage.getItem('cursos'));
     if (cursos && cursos.length > 0) {
-        // Add to the first course (Target course)
         if (!cursos[0].valoraciones) {
             cursos[0].valoraciones = [];
         }
         cursos[0].valoraciones.push(nuevaValoracion);
 
-        // Save back to localStorage
+        const mediaEstrellas = calcularMediaEstrellas(cursos[0]);
+    
+        cursos[0].puntuacion_media = mediaEstrellas;
+
         localStorage.setItem('cursos', JSON.stringify(cursos));
     }
+    
+    cargarInfo();
+}
 
-    // 6. Update UI immediately
-    const opinionsContainer = document.getElementById('llista-opinions');
-    if (opinionsContainer) {
-        const estrellasHtml = cargarEstrellas(estrellas);
 
-        opinionsContainer.innerHTML += `
-            <article class="opinio-detallada">
-                <div class="avatar-buit">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                        <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-                    </svg>
-                </div>
-                <div class="contingut-opinio">
-                    <strong>${usuarioNombre}</strong>
-                    <small>Estudiant matriculat (Nou)</small>
-                    <p class="text-opinio">${comentario}</p>
-                </div>
-                <div class="nota-opinio" role="img">
-                    <span class="nota-petita">${estrellasHtml}</span>
-                </div>
-            </article>
-        `;
+function calcularMediaEstrellas(curso) {
+    const valoraciones = curso.valoraciones;
+    if (!valoraciones || valoraciones.length === 0) {
+        return 0;
     }
 
-    // 7. Reset Form
-    document.querySelector('.formulari-valoracio').reset();
+    let estrellasTotales = 0;
+    let numValoraciones = 0;
 
-    alert("Gràcies per la teva valoració!");
+    valoraciones.forEach(valoracion => {
+        const estrellas = valoracion.estrellas;
+        estrellasTotales += estrellas;
+        numValoraciones++;
+    });
+
+    const media =  parseInt(estrellasTotales / numValoraciones).toFixed(2);
+    console.log("Media: ", media);
+
+    return media;
 }

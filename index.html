@@ -18,9 +18,9 @@
 
     <header>
         <div class="logo">
-<a href="index.html">
-  <img src="img/jaume-viladoms.png" alt="Logo Jaume Viladoms">
-</a>
+            <a href="index.html">
+                <img src="img/jaume-viladoms.png" alt="Logo Jaume Viladoms">
+            </a>
         </div>
 
         <nav aria-label="Navegación principal">
@@ -30,7 +30,8 @@
             <a href="index.html#valoraciones">Valoraciones</a>
         </nav>
 
-        <button class="btn-login" aria-label="Iniciar sesión" id="btnLogin" onclick="window.location.href='html/login.html'">
+        <button class="btn-login" aria-label="Iniciar sesión" id="btnLogin"
+            onclick="window.location.href='html/login.html'">
             <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
                 <path
                     d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
@@ -52,73 +53,23 @@
         <section class="container" id="cursos">
             <h2 class="section-title">Cursos millor valorats</h2>
 
-            <div class="grid">
-                <article class="card">
-                    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
-                    <hr class="divider">
-                    <div class="rating" role="img" aria-label="Valoración: 3 de 5 estrellas">★ ★ ★ ☆ ☆</div>
-                    <p class="card-description">A simple landing page webs on refactoring.</p>
-                    <a href="./html/curso.html" class="btn-more">Ver mas</a>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
-                    <hr class="divider">
-                    <div class="rating" role="img" aria-label="Valoración: 4 de 5 estrellas">★ ★ ★ ★ ☆</div>
-                    <p class="card-description">A simple landing page webs on refactoring.</p>
-                    <a href="./html/curso.html" class="btn-more">Ver mas</a>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Website - Landing Page UX Refactor</h3>
-                    <hr class="divider">
-                    <div class="rating" role="img" aria-label="Valoración: 4 de 5 estrellas">★ ★ ★ ★ ☆</div>
-                    <p class="card-description">A simple landing page webs on refactoring.</p>
-                    <a href="./html/curso.html" class="btn-more">Ver mas</a>
-                </article>
+            <div class="grid" id="grid-cursos">
+                
             </div>
         </section>
 
         <section class="container" id="profesores">
             <h2 class="section-title">Profesores millor valorats</h2>
 
-            <div class="grid">
-                <article class="card professor-card">
-                    <div class="professor-avatar" aria-hidden="true"></div>
-                    <h3 class="card-title">Jordi Casals – Expert en Desenvolupament Web</h3>
-                    <span class="professor-specialty">Desenvolupament Web (DAW)</span>
-                    <hr class="divider">
-                    <div class="rating" role="img" aria-label="Valoración: 4 de 5 estrellas">★ ★ ★ ★ ☆</div>
-                    <p class="professor-description">Professor apassionat del DAW, amb experiència en projectes reals de
-                        programació i disseny web. Els seus alumnes destaquen la claredat i la paciència.</p>
-                </article>
-
-                <article class="card professor-card">
-                    <div class="professor-avatar" aria-hidden="true"></div>
-                    <h3 class="card-title">Marta Soler – Administradora Sistemes</h3>
-                    <span class="professor-specialty">Administració Sistemes (ASIX)</span>
-                    <hr class="divider">
-                    <div class="rating" role="img" aria-label="Valoración: 3 de 5 estrellas">★ ★ ★ ☆ ☆</div>
-                    <p class="professor-description">Especialista en ASIX, amb coneixements avançats en seguretat i
-                        xarxes. Coneguda per fer les classes molt pràctiques i adaptades al món laboral.</p>
-                </article>
-
-                <article class="card professor-card">
-                    <div class="professor-avatar" aria-hidden="true"></div>
-                    <h3 class="card-title">Pau Ferrer – Tècnic en Microinformàtica</h3>
-                    <span class="professor-specialty">Microinformàtica (SMIX)</span>
-                    <hr class="divider">
-                    <div class="rating" role="img" aria-label="Valoración: 3 de 5 estrellas">★ ★ ★ ☆ ☆</div>
-                    <p class="professor-description">Professor de SMIX que combina teoria amb tallers pràctics. Els
-                        estudiants valoren la seva proximitat i la manera d’explicar conceptes complexos.</p>
-                </article>
+            <div class="grid" id="grid-profesores">
+                
             </div>
         </section>
 
         <section class="container" id="valoraciones">
             <h2 class="section-title">Algunes valoracions</h2>
 
-            <div class="reviews-list">
+            <div class="reviews-list" id="valoracionesContainer">
                 <article class="review-item">
                     <div class="avatar-placeholder" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
