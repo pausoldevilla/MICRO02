@@ -3,97 +3,87 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function cargarInfo() {
-    const cursos = JSON.parse(localStorage.getItem('cursos'));
+    const curso = JSON.parse(localStorage.getItem('cursoSeleccionado'));;
 
-    if (cursos && cursos.length > 0) {
-        const curso = cursos[0];
-
-        // 1. Update Hero Title
-        const heroTitle = document.getElementById('hero-title');
-        if (heroTitle) {
-            heroTitle.textContent = curso.nombre;
-        }
-
-        // 2. Update Professors
-        const professorsContainer = document.getElementById('llista-professors');
-
-        // Se resetea el container para evitar que se mezcle información
-        if (professorsContainer) {
-            professorsContainer.innerHTML = '';
-        }
-
-        if (professorsContainer && curso.profesores) {
-            console.log(curso.profesores);
-
-            curso.profesores.forEach(profe => {
-                const nombre = profe.nombre;
-                const estrellas = profe.estrellas;
-
-                const estrellasHtml = cargarEstrellas(estrellas);
-
-                professorsContainer.innerHTML += `
-                    <article class="tarja professor-tarja targeta-professor-petita">
-                        <div class="professor-icona"></div>
-                        <h4 class="titol-targeta">${nombre}</h4>
-                        <div class="nota-estrelles nota-petita" role="img">${estrellasHtml}</div>
-                        <a href="#" class="boto-accio btn-small">Ver perfil</a>
-                    </article>
-                `;
-            });
-        }
-
-        const opinionsContainer = document.getElementById('llista-opinions');
-
-        // Resetear el contenedor para que no haya info de más
-        if (opinionsContainer) {
-            opinionsContainer.innerHTML = '';
-        }
-
-        if (opinionsContainer && curso.valoraciones) {
-
-            curso.valoraciones.forEach(val => {
-                const estrellasHtml = cargarEstrellas(val.estrellas);
-                const avatar = obtenerFotoUser(val.usuario);
-
-                let foto;
-                // 
-                if(avatar === 'avatar-buit') {
-                    foto = `
-                        <div class="avatar-buit">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                                <path
-                                    d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
-                            </svg>
-                        </div>`;
-                }else{
-                    
-                    foto = `
-                        <div class="avatar">
-                            <img src="${avatar}" alt="Avatar">
-                        </div>
-                    `;
-                }
-
-                opinionsContainer.innerHTML += `
-                    <article class="opinio-detallada">
-                        ${foto}
-                        <div class="contingut-opinio">
-                            <strong>${val.usuario}</strong>
-                            <small>Estudiant matriculat</small>
-                            <p class="text-opinio">${val.comentario}</p>
-                        </div>
-                        <div class="nota-opinio" role="img">
-                            <span class="nota-petita">${estrellasHtml}</span>
-                        </div>
-                    </article>
-                `;
-            });
-        }
+    const heroTitle = document.getElementById('hero-title');
+    if (heroTitle) {
+        heroTitle.textContent = curso.nombre;
     }
 
+    const professorsContainer = document.getElementById('llista-professors');
 
+    // Se resetea el container para evitar que se mezcle información
+    if (professorsContainer) {
+        professorsContainer.innerHTML = '';
+    }
+
+    if (professorsContainer && curso.profesores) {
+        console.log(curso.profesores);
+
+        curso.profesores.forEach(profe => {
+            const nombre = profe.nombre;
+            const estrellas = profe.estrellas;
+
+            const estrellasHtml = cargarEstrellas(estrellas);
+
+            professorsContainer.innerHTML += `
+                <article class="tarja professor-tarja targeta-professor-petita">
+                    <div class="professor-icona"></div>
+                    <h4 class="titol-targeta">${nombre}</h4>
+                    <div class="nota-estrelles nota-petita" role="img">${estrellasHtml}</div>
+                    <a href="#" class="boto-accio btn-small">Ver perfil</a>
+                </article>
+            `;
+        });
+    }
+
+    const opinionsContainer = document.getElementById('llista-opinions');
+
+    // Resetear el contenedor para que no haya info de más
+    if (opinionsContainer) {
+        opinionsContainer.innerHTML = '';
+    }
+
+    if (opinionsContainer && curso.valoraciones) {
+
+        curso.valoraciones.forEach(val => {
+            const estrellasHtml = cargarEstrellas(val.estrellas);
+            const avatar = obtenerFotoUser(val.usuario);
+
+            let foto;
+            // 
+            if(avatar === 'avatar-buit') {
+                foto = `
+                    <div class="avatar-buit">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                            <path
+                                d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
+                        </svg>
+                    </div>`;
+            }else{
+                
+                foto = `
+                    <div class="avatar">
+                        <img src="${avatar}" alt="Avatar">
+                    </div>
+                `;
+            }
+
+            opinionsContainer.innerHTML += `
+                <article class="opinio-detallada">
+                    ${foto}
+                    <div class="contingut-opinio">
+                        <strong>${val.usuario}</strong>
+                        <p class="text-opinio">${val.comentario}</p>
+                    </div>
+                    <div class="nota-opinio" role="img">
+                        <span class="nota-petita">${estrellasHtml}</span>
+                    </div>
+                </article>
+            `;
+        });
+    }
 }
-
 
 function cargarEstrellas(marcadas) {
     let estrellasHtml = '';
@@ -164,23 +154,32 @@ function valorarCurso() {
         estrellas: estrellas
     };
 
-    const cursos = JSON.parse(localStorage.getItem('cursos'));
-    if (cursos && cursos.length > 0) {
-        if (!cursos[0].valoraciones) {
-            cursos[0].valoraciones = [];
-        }
-        cursos[0].valoraciones.push(nuevaValoracion);
+    // Recuperar curso seleccionado
+    const cursoSeleccionado = JSON.parse(localStorage.getItem('cursoSeleccionado'));
+    if (!cursoSeleccionado) return;
 
-        const mediaEstrellas = calcularMediaEstrellas(cursos[0]);
-    
-        cursos[0].puntuacion_media = mediaEstrellas;
+    // Añadir valoración
+    if (!cursoSeleccionado.valoraciones) {
+        cursoSeleccionado.valoraciones = [];
+    }
+    cursoSeleccionado.valoraciones.push(nuevaValoracion);
 
+    // Recalcular media
+    cursoSeleccionado.puntuacion_media = calcularMediaEstrellas(cursoSeleccionado);
+
+    // Actualizar array completo de cursos
+    const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+    const index = cursos.findIndex(c => c.nombre === cursoSeleccionado.nombre);
+    if (index !== -1) {
+        cursos[index] = cursoSeleccionado; // sustituimos en su posición
         localStorage.setItem('cursos', JSON.stringify(cursos));
     }
-    
-    cargarInfo();
-}
 
+    // Guardar también el curso seleccionado actualizado
+    localStorage.setItem('cursoSeleccionado', JSON.stringify(cursoSeleccionado));
+    
+    window.location.reload();
+}
 
 function calcularMediaEstrellas(curso) {
     const valoraciones = curso.valoraciones;

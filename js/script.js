@@ -169,7 +169,7 @@ function cargarMejoresCursos() {
                 <hr class="divider">
                 <div class="rating" role="img">${estrellasHtml}</div>
                 <p class="card-description">Curs excel·lent de ${curso.nombre}</p>
-                <a href="./html/curso.html" class="btn-more">Ver mas</a>
+                <a class="btn-more" onclick="ObtenerCurso('${curso.nombre}')")>Ver mas</a>
             </article>
         `;
     });
@@ -270,4 +270,14 @@ function cargarEstrellas(marcadas) {
         `;
     }
     return estrellasHtml;
+}
+
+function ObtenerCurso(nombreCurso) {
+    const cursos = JSON.parse(localStorage.getItem('cursos'));
+    const cursoSeleccionado = cursos.find(c => c.nombre === nombreCurso);
+    if (cursoSeleccionado) {
+        localStorage.setItem('cursoSeleccionado', JSON.stringify(cursoSeleccionado));
+    }
+
+    window.location.href = './html/curso.html';
 }
