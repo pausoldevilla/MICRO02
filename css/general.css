@@ -351,6 +351,40 @@ footer {
     font-size: 0.8rem;
 }
 
+/* Contenedor */
+.selector-estrelles {
+    display: flex;
+    flex-direction: row-reverse; /* Para que al pasar el ratón ilumine hacia la izquierda */
+    justify-content: space-around;
+    gap: 5px;
+}
+
+/* Ocultar los radios */
+.selector-estrelles input {
+    display: none;
+}
+
+/* Estilo base de la estrella */
+.selector-estrelles label {
+    font-size: 3rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover: ilumina todas las anteriores */
+.selector-estrelles label:hover,
+.selector-estrelles label:hover ~ label {
+    color: #ffcc00;
+}
+
+/* Cuando está seleccionada */
+.selector-estrelles input:checked ~ label {
+    color: #ffb800;
+}
+
+
+
 /* ==================== 6. RESPONSIVE GENERAL ==================== */
 
 @media (max-width: 1024px) {

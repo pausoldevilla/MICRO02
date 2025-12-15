@@ -148,7 +148,7 @@ function cargarMejoresCursos() {
         Para ello se tiene que restar el valor de la puntuacion media de un curso a la de otro.
         Cuando el resultado es negativo el curso a va antes sino el curso b ira antes. Esto lo hace internamente el sort.
         Después se usa el slice para obtener unicamente los 3 primeros cursos que sera los que se mostraran en la pagina web.
-    */  
+    */
 
     const mejoresCursos = cursos
         .sort((a, b) => (b.puntuacion_media) - (a.puntuacion_media))
@@ -192,7 +192,7 @@ function cargarMejoresProfesores() {
     if (!gridProfesores) return;
 
     gridProfesores.innerHTML = '';
-    
+
     mejoresProfesores.forEach(profesor => {
         // Se redondea la puntuación ya que aveces hay decimales y luego se cargan las estrellas
         const estrellasRedondeadas = Math.round(profesor.estrellas || 0);
@@ -211,7 +211,7 @@ function cargarMejoresProfesores() {
     });
 }
 
-function cargarAlgunasValoraciones(){
+function cargarAlgunasValoraciones() {
     const cursos = JSON.parse(localStorage.getItem('cursos'));
 
     let valoraciones = [];
@@ -221,12 +221,12 @@ function cargarAlgunasValoraciones(){
         Y por cada curso unicamente nos vamos a guardar dos valoraciones
     */
     cursos.forEach(curso => {
-       curso.valoraciones.forEach(valoracion => {
-        // añadimos el nombre del curso dentro del objeto original
-        valoracion.cursoNombre = curso.nombre;
-    });
-    valoraciones.push(curso.valoraciones[0]);
-    valoraciones.push(curso.valoraciones[1]);
+        curso.valoraciones.forEach(valoracion => {
+            // añadimos el nombre del curso dentro del objeto original
+            valoracion.cursoNombre = curso.nombre;
+        });
+        valoraciones.push(curso.valoraciones[0]);
+        valoraciones.push(curso.valoraciones[1]);
     });
 
     // Nos quedamos con seis valoraciones unicamente
@@ -306,27 +306,45 @@ function buscarCurso() {
     }
 }
 
-function mostrarSugerencias() {
-    const texto = document.getElementById('buscadorInput').value.toLowerCase();
-    const sugerenciasDiv = document.getElementById('sugerencias');
-    sugerenciasDiv.innerHTML = '';
+function mostrarLista() {
+    const input = document.getElementById('buscadorInput');
+    const lista = document.getElementById('listaCustom');
+    const texto = input.value.toLowerCase();
 
-    if (!texto) return;
+    lista.innerHTML = '';
+
+    if (!texto) {
+        lista.style.display = "none";
+        return;
+    }
 
     const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+
     const resultados = cursos.filter(curso =>
         curso.nombre.toLowerCase().includes(texto)
     );
 
-     resultados.forEach(curso => {
-        sugerenciasDiv.innerHTML += `
-            <div onclick="seleccionSugerencia('${curso.nombre}')">
-                ${curso.nombre}
-            </div>
-        `;
+    if (resultados.length === 0) {
+        lista.style.display = "none";
+        return;
+    }
+
+    resultados.forEach(curso => {
+        const item = document.createElement('div');
+        item.textContent = curso.nombre;
+
+        item.onclick = () => {
+            input.value = curso.nombre;
+            lista.style.display = "none";
+        };
+
+        lista.appendChild(item);
     });
 
+    lista.style.display = "block";
 }
+
+
 
 function seleccionSugerencia(nombreCurso) {
     //Cuando se selecciona un curso, obtenemos el input, y le asiignamos el valor con el nombre del curso seleccionado desde las sugerencias
@@ -334,4 +352,23 @@ function seleccionSugerencia(nombreCurso) {
     buscador.value = nombreCurso;
     // Después se resetean las sugerencias, es decir se dejan vacias
     document.getElementById('sugerencias').innerHTML = '';
+}
+
+function ObtenerProfesor(nombreProfesor) {
+    const cursos = JSON.parse(localStorage.getItem('cursos'));
+    let profesorSeleccionado = null;
+
+    // Buscar el profesor en todos los cursos
+    for (const curso of cursos) {
+        const found = curso.profesores.find(p => p.nombre === nombreProfesor);
+        if (found) {
+            profesorSeleccionado = found;
+            break;
+        }
+    }
+
+    if (profesorSeleccionado) {
+        localStorage.setItem('profesorSeleccionado', JSON.stringify(profesorSeleccionado));
+        window.location.href = './html/profesores.html';
+    }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curs: Desenvolupament Web Avançat - Valoracions</title>
+    <title>Perfil del Professor - Jaume Viladoms</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/general.css">
@@ -43,59 +43,65 @@
 
         <section class="seccio-hero">
             <div class="espai-limitat contingut-hero-curs">
-                <h1 id="hero-title">Desenvolupament Web Avançat: React i Node.js</h1>
+                <h1 id="hero-title">Nom del Professor</h1>
             </div>
-            <div class="llista-professors" id="llista-professors">
+            <div class="llista-professors" id="llista-cursos">
+                <!-- Se llenará con los cursos que imparte -->
             </div>
         </section>
 
         <section class="espai-limitat contingut-principal">
 
+            <!-- Opcional: Mostrar descripción o bio más larga si existiera -->
+
             <section id="testimonis-detallats">
                 <h2 class="titol-apartat">Opinió dels Alumnes</h2>
 
                 <div class="llista-opinions llista-opinions-detallades" id="llista-opinions">
-
+                    <!-- Las opiniones se cargarán aquí con JS -->
                 </div>
             </section>
-        </section>
+
+            <section class="espai-limitat distribucio-valorar">
+
+                <article class="tarja targeta-valoracio-formulari">
+                    <h2 class="titol-apartat" style="border:none;">Valora al teu Professor</h2>
+
+                    <div class="formulari-valoracio">
+                        <h4>Tu valoración es importante para nosotros. Deja un comentario y selecciona la cantidad de
+                            estrellas.</h4>
+                        <div class="selector-estrelles">
+                            <input type="radio" id="star5-r" name="rating" value="5"><label for="star5-r"
+                                title="5 estrelles">★</label>
+                            <input type="radio" id="star4-r" name="rating" value="4"><label for="star4-r"
+                                title="4 estrelles">★</label>
+                            <input type="radio" id="star3-r" name="rating" value="3"><label for="star3-r"
+                                title="3 estrelles">★</label>
+                            <input type="radio" id="star2-r" name="rating" value="2"><label for="star2-r"
+                                title="2 estrelles">★</label>
+                            <input type="radio" id="star1-r" name="rating" value="1"><label for="star1-r"
+                                title="1 estrella">★</label>
+                        </div>
+
+                        <div class="grup-camp-form">
+                            <textarea id="comment" placeholder="Deixa el teu comentari de valoració aquí..."
+                                required></textarea>
+                        </div>
 
 
-        <section class="espai-limitat distribucio-valorar">
+                        <button type="submit" class="boto-accio boto-ample-complet" onclick="valorarProfessor()">Enviar
+                            Valoració</button>
 
-            <article class="tarja targeta-valoracio-formulari">
-                <h2 class="titol-apartat" style="border:none;">Valora el teu Curs</h2>
-
-                <div class="formulari-valoracio">
-                    <h4>Tu valoración es importante para nosotros. Deja un comentario y selecciona la cantidad de estrellas.</h4>
-<div class="selector-estrelles">
-    <input type="radio" id="star5-r" name="rating" value="5"><label for="star5-r"
-        title="5 estrelles">★</label>
-    <input type="radio" id="star4-r" name="rating" value="4"><label for="star4-r"
-        title="4 estrelles">★</label>
-    <input type="radio" id="star3-r" name="rating" value="3"><label for="star3-r"
-        title="3 estrelles">★</label>
-    <input type="radio" id="star2-r" name="rating" value="2"><label for="star2-r"
-        title="2 estrelles">★</label>
-    <input type="radio" id="star1-r" name="rating" value="1"><label for="star1-r"
-        title="1 estrella">★</label>
-</div>
-
-                    <div class="grup-camp-form">
-                        <textarea id="comment" placeholder="Deixa el teu comentari de valoració aquí..."
-                            required></textarea>
+                        <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">* Tu correo electrónico no se hará
+                            público.</p>
                     </div>
-
-
-                    <button type="submit" class="boto-accio boto-ample-complet" onclick="valorarCurso()">Enviar
-                        Valoració</button>
-
-                    <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">* Tu correo electrónico no se hará público.</p>
+                </article>
+                <div class="contenedor-imagen-valoracion">
+                    <img src="../img/classe.jpeg" alt="Imatge d'una classe">
                 </div>
-            </article>
-<div class="contenedor-imagen-valoracion">
-    <img src="../img/classe.jpeg" alt="Imatge d'una classe amb projectes de desenvolupament web">
-</div>            </section>
+            </section>
+
+        </section>
 
     </main>
 
@@ -131,7 +137,7 @@
             &copy; 2025 Jaume Viladoms. Tots els drets reservats.
         </div>
     </footer>
-    <script src="../js/curso.js"></script>
+    <script src="../js/profesor.js"></script>
 </body>
 
 </html>

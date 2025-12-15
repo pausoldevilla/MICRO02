@@ -52,7 +52,7 @@
     border-radius: 8px;
     border: none;
     font-size: 1rem;
-    min-width: 200px;
+    width: 600px;
 }
 
 .hero-inputs button {
@@ -162,6 +162,39 @@
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+.input-wrapper {
+    position: relative;
+}
+
+.lista-sugerencias {
+    text-align: left;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%; /* ✅ ocupa el ancho del input */
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 20;
+    display: none; /* ✅ oculta hasta que haya resultados */
+    border-radius: 5px;
+}
+
+.lista-sugerencias div {
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.lista-sugerencias div:hover {
+    background: #f0f0f0;
+}
+
+
+
 
 /* --- Responsive Home Específico --- */
 @media (max-width: 768px) {

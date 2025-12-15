@@ -44,18 +44,23 @@
         <section class="hero-home">
             <h1>Descubre los mejores cursos con los mejores profesionales</h1>
 
-            <div class="hero-inputs">
-                <input type="text" id="buscadorInput" placeholder="Nom del curs" oninput="mostrarSugerencias()">
-                <button onclick="buscarCurso()">Buscar</button>
-                <div id="sugerencias"></div>
+        <div class="hero-inputs">
+            <div class="input-wrapper">
+                <input type="text" id="buscadorInput" placeholder="Nombre del curso" oninput="mostrarLista()">
+                <div id="listaCustom" class="lista-sugerencias"></div>
             </div>
+
+            <button onclick="buscarCurso()">Buscar</button>
+        </div>
+
+
         </section>
 
         <section class="container" id="cursos">
             <h2 class="section-title">Cursos millor valorats</h2>
 
             <div class="grid" id="grid-cursos">
-                
+
             </div>
         </section>
 
@@ -63,7 +68,7 @@
             <h2 class="section-title">Profesores millor valorats</h2>
 
             <div class="grid" id="grid-profesores">
-                
+
             </div>
         </section>
 
@@ -71,7 +76,7 @@
             <h2 class="section-title">Algunes valoracions</h2>
 
             <div class="reviews-list" id="valoracionesContainer">
-                
+
             </div>
         </section>
     </main>
