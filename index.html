@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 
 <head>
     <meta charset="UTF-8">
@@ -23,11 +23,11 @@
             </a>
         </div>
 
-        <nav aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
-            <a href="index.html#cursos">Mejores Cursos</a>
-            <a href="index.html#profesores">Mejores Profes</a>
-            <a href="index.html#valoraciones">Valoraciones</a>
+        <nav aria-label="Navegació principal">
+            <a href="index.html">Inici</a>
+            <a href="index.html#cursos">Millors Cursos</a>
+            <a href="index.html#profesores">Millors Profes</a>
+            <a href="index.html#valoraciones">Valoracions</a>
         </nav>
 
         <button class="btn-login" aria-label="Iniciar sesión" id="btnLogin"
@@ -36,22 +36,22 @@
                 <path
                     d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" />
             </svg>
-            Login
+            Inicia sessió
         </button>
     </header>
 
     <main>
         <section class="hero-home">
-            <h1>Descubre los mejores cursos con los mejores profesionales</h1>
+            <h1>Descobreix els millors cursos amb els millors professionals</h1>
 
-        <div class="hero-inputs">
-            <div class="input-wrapper">
-                <input type="text" id="buscadorInput" placeholder="Nombre del curso" oninput="mostrarLista()">
-                <div id="listaCustom" class="lista-sugerencias"></div>
+            <div class="hero-inputs">
+                <div class="input-wrapper">
+                    <input type="text" id="buscadorInput" placeholder="Nom del curs" oninput="mostrarLista()">
+                    <div id="listaCustom" class="lista-sugerencias"></div>
+                </div>
+
+                <button onclick="buscarCurso()">Cercar</button>
             </div>
-
-            <button onclick="buscarCurso()">Buscar</button>
-        </div>
 
 
         </section>
@@ -65,7 +65,7 @@
         </section>
 
         <section class="container" id="profesores">
-            <h2 class="section-title">Profesores millor valorats</h2>
+            <h2 class="section-title">Professors millor valorats</h2>
 
             <div class="grid" id="grid-profesores">
 

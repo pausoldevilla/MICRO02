@@ -31,7 +31,7 @@ function cargarInfo() {
                     <div class="professor-icona"></div>
                     <h4 class="titol-targeta">${nombre}</h4>
                     <div class="nota-estrelles nota-petita" role="img">${estrellasHtml}</div>
-                    <a href="#" class="boto-accio btn-small">Ver perfil</a>
+                    <a href="#" class="boto-accio btn-small">Veure perfil</a>
                 </article>
             `;
         });

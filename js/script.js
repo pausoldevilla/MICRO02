@@ -34,12 +34,12 @@ function insertarCursos() {
                 "valoraciones": [
                     {
                         "usuario": "dev_alex",
-                        "comentario": "El temario es muy completo y actualizado.",
+                        "comentario": "El temari és molt complet i actualitzat.",
                         "estrellas": 5
                     },
                     {
                         "usuario": "lucia_g",
-                        "comentario": "Buenas prácticas explicadas desde el principio.",
+                        "comentario": "Bones pràctiques explicades des del principi.",
                         "estrellas": 4
                     }
                 ]
@@ -64,12 +64,12 @@ function insertarCursos() {
                 "valoraciones": [
                     {
                         "usuario": "sysadmin_joan",
-                        "comentario": "Mucha práctica con servidores Linux, genial.",
+                        "comentario": "Molta pràctica amb servidors Linux, genial.",
                         "estrellas": 5
                     },
                     {
                         "usuario": "ana_tech",
-                        "comentario": "Un poco denso al principio pero muy útil.",
+                        "comentario": "Una mica dens al principi però molt útil.",
                         "estrellas": 3
                     }
                 ]
@@ -94,12 +94,12 @@ function insertarCursos() {
                 "valoraciones": [
                     {
                         "usuario": "hacker_neo",
-                        "comentario": "Increíble el módulo de pentesting.",
+                        "comentario": "Increïble el mòdul de pentesting.",
                         "estrellas": 5
                     },
                     {
                         "usuario": "security_pro",
-                        "comentario": "Profesores muy expertos en la materia.",
+                        "comentario": "Professors molt experts en la matèria.",
                         "estrellas": 5
                     }
                 ]
@@ -124,12 +124,12 @@ function insertarCursos() {
                 "valoraciones": [
                     {
                         "usuario": "newbie_pc",
-                        "comentario": "Perfecto para empezar desde cero.",
+                        "comentario": "Perfecte per començar des de zero.",
                         "estrellas": 4
                     },
                     {
                         "usuario": "repair_man",
-                        "comentario": "Bien explicado el hardware.",
+                        "comentario": "Ben explicat el hardware.",
                         "estrellas": 5
                     }
                 ]
@@ -169,7 +169,7 @@ function cargarMejoresCursos() {
                 <hr class="divider">
                 <div class="rating" role="img">${estrellasHtml}</div>
                 <p class="card-description">Curs excel·lent de ${curso.nombre}</p>
-                <a class="btn-more" onclick="ObtenerCurso('${curso.nombre}')")>Ver mas</a>
+                <a class="btn-more" onclick="ObtenerCurso('${curso.nombre}')")>Veure més</a>
             </article>
         `;
     });
@@ -205,7 +205,7 @@ function cargarMejoresProfesores() {
                 <hr class="divider">
                 <div class="rating" role="img">${estrellasHtml}</div>
                 <p class="card-description">${profesor.descripcion}</p>
-                <a href="./html/profesor.html" class="btn-more">Ver mas</a>
+                <a href="./html/profesor.html" class="btn-more">Veure més</a>
             </article>
         `;
     });

@@ -4,11 +4,15 @@
 /* ==================== 1. VARIABLES CSS (Custom Properties) ==================== */
 :root {
     /* Colores Principales (Combinación de tus CSS) */
-    --primary-color: #F4D35E; /* Amarillo/Dorado */
-    --primary-hover: #eeaf02; 
-    --secondary-color: #0D3B66; /* Azul oscuro */
-    --accent1-color: #EE964B; /* Naranja medio */
-    --accent2-color: #F95738; /* Naranja/Rojo */
+    --primary-color: #F4D35E;
+    /* Amarillo/Dorado */
+    --primary-hover: #eeaf02;
+    --secondary-color: #0D3B66;
+    /* Azul oscuro */
+    --accent1-color: #EE964B;
+    /* Naranja medio */
+    --accent2-color: #F95738;
+    /* Naranja/Rojo */
 
     /* Textos y Bordes */
     --text-color: #333;
@@ -16,21 +20,21 @@
     --text-gray: #6B6B6B;
     --border-color: #ddd;
     --white: #FFFFFF;
-    
+
     /* Tipografía */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Componentes Comunes */
     --star-color: var(--primary-color);
-    --btn-more-color: var(--accent1-color); 
-    --btn-more-hover-color: var(--accent2-color); 
+    --btn-more-color: var(--accent1-color);
+    --btn-more-hover-color: var(--accent2-color);
 
     /* Diseño de Tarjetas (Cards) */
-    --card-padding: 25px; 
+    --card-padding: 25px;
     --card-radius: 12px;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-    --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15); 
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* ==================== 2. ESTILOS BASE / RESET ==================== */
@@ -97,6 +101,7 @@ h3 {
     color: var(--star-color);
     margin-bottom: 15px;
 }
+
 .rating-small {
     font-size: 0.9rem;
     color: var(--star-color);
@@ -105,7 +110,7 @@ h3 {
 
 /* Botón "Ver Más" Común */
 .btn-more {
-    background: var(--btn-more-color); 
+    background: var(--btn-more-color);
     padding: 12px 25px;
     border-radius: 8px;
     border: none;
@@ -121,7 +126,7 @@ h3 {
 }
 
 .btn-more:hover {
-    background-color: var(--btn-more-hover-color); 
+    background-color: var(--btn-more-hover-color);
     transform: translateY(-1px);
 }
 
@@ -132,7 +137,12 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: var(--white);
-    /* Puedes añadir position: sticky y box-shadow si quieres que flote */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect total width */
 }
 
 .logo img {
@@ -250,8 +260,8 @@ nav a:hover {
 .review-item .avatar-placeholder {
     width: 50px;
     height: 50px;
-    background: var(--primary-color); 
-    border-radius: 8px; 
+    background: var(--primary-color);
+    border-radius: 8px;
     margin-right: 15px;
     flex-shrink: 0;
     position: relative;
@@ -259,7 +269,7 @@ nav a:hover {
 }
 
 .review-item .avatar-placeholder svg {
-    fill: var(--secondary-color); 
+    fill: var(--secondary-color);
     width: 80%;
     height: 80%;
     position: absolute;
@@ -289,7 +299,7 @@ nav a:hover {
 }
 
 .review-text {
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
     color: #666;
     margin: 0;
 }
@@ -354,7 +364,8 @@ footer {
 /* Contenedor */
 .selector-estrelles {
     display: flex;
-    flex-direction: row-reverse; /* Para que al pasar el ratón ilumine hacia la izquierda */
+    flex-direction: row-reverse;
+    /* Para que al pasar el ratón ilumine hacia la izquierda */
     justify-content: space-around;
     gap: 5px;
 }
@@ -374,12 +385,12 @@ footer {
 
 /* Hover: ilumina todas las anteriores */
 .selector-estrelles label:hover,
-.selector-estrelles label:hover ~ label {
+.selector-estrelles label:hover~label {
     color: #ffcc00;
 }
 
 /* Cuando está seleccionada */
-.selector-estrelles input:checked ~ label {
+.selector-estrelles input:checked~label {
     color: #ffb800;
 }
 
@@ -388,16 +399,33 @@ footer {
 /* ==================== 6. RESPONSIVE GENERAL ==================== */
 
 @media (max-width: 1024px) {
-    h1 { font-size: 48px; }
-    h2 { font-size: 38px; }
-    h3 { font-size: 22px; }
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 38px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
 }
 
 @media (max-width: 768px) {
+
     /* Tipografía */
-    h1 { font-size: 36px; }
-    h2 { font-size: 32px; }
-    h3 { font-size: 20px; }
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
 
     /* Header */
     header {
@@ -415,7 +443,7 @@ footer {
     .logo img {
         height: 60px;
     }
-    
+
     /* Footer */
     .footer-content {
         flex-direction: column;
