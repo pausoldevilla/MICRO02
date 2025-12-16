@@ -1,5 +1,5 @@
 /* Importamos el CSS general para heredar todos los estilos base, header, footer, etc. */
-@import url('./general.css'); 
+@import url('./general.css');
 
 /* ==================== ESTILOS DE LOGIN / REGISTRO ==================== */
 
@@ -26,12 +26,25 @@ body {
 /* Columna de Imagen */
 .login-image {
     flex: 1;
-    background: url('../img/classe.jpeg') no-repeat center center/cover;
-    position: relative;
+    position: sticky;
+    top: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 600px;
+    height: calc(100vh - 100px);
+    max-height: 700px;
+    border-radius: 12px;
+    overflow: hidden;
+    align-self: flex-start;
+}
+
+.login-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 12px;
 }
 
@@ -43,8 +56,8 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(13, 59, 102, 0.6);
-        border-radius: 12px;
-
+    border-radius: 12px;
+    z-index: 1;
 }
 
 .login-image-content {
