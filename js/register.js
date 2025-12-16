@@ -16,12 +16,14 @@ function register() {
     if (!nomUsuari || !email || !contrasenya || !confirmContrasenya || !avatar.files[0]) {
         const error = document.getElementById('error');
         error.innerHTML = 'Has de completar tots els camps';
+        error.style.display = 'block';
         return;
     }
 
     if (contrasenya !== confirmContrasenya) {
         const error = document.getElementById('error');
         error.innerHTML = 'Les contrasenyes no coincideixen';
+        error.style.display = 'block';
         return;
     }
 
@@ -37,6 +39,7 @@ function register() {
     if (userExists) {
         const error = document.getElementById('error');
         error.innerHTML = 'El correu electrònic ja existeix';
+        error.style.display = 'block';
         return;
     }
     
