@@ -130,67 +130,6 @@ body {
     transform: translateY(-1px);
 }
 
-header {
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.logo img {
-    height: 80px;
-}
-
-nav {
-    display: flex;
-    gap: 40px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #000;
-    font-size: 1rem;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-}
-
-nav a.pagina-actual {
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-
-nav a.pagina-actual::after {
-    width: 100%;
-    background-color: var(--secondary-color);
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease-out;
-    border-radius: 2px;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover {
-    color: var(--secondary-color);
-}
-
 .boto-inici-sessio {
     display: flex;
     align-items: center;
@@ -320,7 +259,6 @@ nav a:hover {
 .targeta-valoracio-formulari {
     padding: var(--tarja-padding);
     border-radius: var(--tarja-radius);
-    box-shadow: var(--card-shadow);
 }
 
 .distribucio-valorar .targeta-valoracio-formulari {
@@ -466,7 +404,6 @@ footer {
     /* Aseguramos que el contenedor de la imagen se estire al 100% del alto disponible */
     align-self: stretch;
     border-radius: var(--tarja-radius);
-    box-shadow: var(--card-shadow-hover);
     overflow: hidden;
     /* Importante para recortar la imagen */
 }
@@ -512,7 +449,6 @@ footer {
 
     .llista-professors {
         flex-direction: column;
-        width: 100%;
         padding: 0 20px;
     }
 
@@ -526,9 +462,10 @@ footer {
     }
 
     .distribucio-valorar .targeta-valoracio-formulari,
-    .distribucio-valorar img {
-        width: 100%;
-        max-width: 100%;
+    .distribucio-valorar img,
+    .distribucio-valorar .contenedor-imagen-valoracion {
+        max-width: 80%;
+        margin: 20px;
     }
 }
 
