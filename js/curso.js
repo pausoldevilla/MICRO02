@@ -28,7 +28,7 @@ function cargarInfo() {
 
             professorsContainer.innerHTML += `
                 <article class="tarja professor-tarja targeta-professor-petita">
-                    <div class="professor-icona"></div>
+                     <img professor-avatar src="../img/${profe.url}">
                     <h4 class="titol-targeta">${nombre}</h4>
                     <div class="nota-estrelles nota-petita" role="img">${estrellasHtml}</div>
                     <a href="#" class="boto-accio btn-small">Veure perfil</a>
