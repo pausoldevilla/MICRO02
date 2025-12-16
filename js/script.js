@@ -22,13 +22,37 @@ function insertarCursos() {
                         "nombre": "Jordi Casals",
                         "titulo": "Expert en Desenvolupament Web",
                         "descripcion": "Professor apassionat del DAW, amb experiència en projectes reals de programació i disseny web. Els seus alumnes destaquen la claredat i la paciència.",
-                        "estrellas": 4
+                        "estrellas": 4,
+                        "valoraciones": [
+                            {
+                                "usuario": "frontend_fan",
+                                "comentario": "Explica molt bé els conceptes bàsics.",
+                                "estrellas": 4
+                            },
+                            {
+                                "usuario": "code_master",
+                                "comentario": "Molt pacient i clar en les respostes.",
+                                "estrellas": 5
+                            }
+                        ]
                     },
                     {
                         "nombre": "Elena Puig",
                         "titulo": "Full Stack Developer",
                         "descripcion": "Especialista en frameworks moderns i arquitectures escalables.",
-                        "estrellas": 5
+                        "estrellas": 5,
+                        "valoraciones": [
+                            {
+                                "usuario": "stack_dev",
+                                "comentario": "Gran coneixement de frameworks moderns.",
+                                "estrellas": 5
+                            },
+                            {
+                                "usuario": "api_builder",
+                                "comentario": "Les seves classes de backend són molt útils.",
+                                "estrellas": 4
+                            }
+                        ]
                     }
                 ],
                 "valoraciones": [
@@ -52,13 +76,27 @@ function insertarCursos() {
                         "nombre": "Marta Soler",
                         "titulo": "Administradora Sistemes",
                         "descripcion": "Especialista en ASIX, amb coneixements avançats en seguretat i xarxes. Coneguda per fer les classes molt pràctiques i adaptades al món laboral.",
-                        "estrellas": 3
+                        "estrellas": 3,
+                        "valoraciones": [
+                            {
+                                "usuario": "net_admin",
+                                "comentario": "Explica molt bé la part de xarxes.",
+                                "estrellas": 4
+                            }
+                        ]
                     },
                     {
                         "nombre": "Jordi Mata",
                         "titulo": "SysAdmin Senior",
                         "descripcion": "Expert en virtualització i cloud computing.",
-                        "estrellas": 5
+                        "estrellas": 5,
+                        "valoraciones": [
+                            {
+                                "usuario": "cloud_fan",
+                                "comentario": "Les pràctiques de virtualització són molt completes.",
+                                "estrellas": 5
+                            }
+                        ]
                     }
                 ],
                 "valoraciones": [
@@ -82,13 +120,27 @@ function insertarCursos() {
                         "nombre": "Carlos Riera",
                         "titulo": "Expert en Ciberseguretat",
                         "descripcion": "Consultor de seguretat amb anys d'experiència en auditories y pentesting.",
-                        "estrellas": 5
+                        "estrellas": 5,
+                        "valoraciones": [
+                            {
+                                "usuario": "pentest_pro",
+                                "comentario": "Les pràctiques de hacking ètic són increïbles.",
+                                "estrellas": 5
+                            }
+                        ]
                     },
                     {
                         "nombre": "Sofia Vidal",
                         "titulo": "Analista Forense",
                         "descripcion": "Especialista en anàlisi de malware i resposta a incidents.",
-                        "estrellas": 4
+                        "estrellas": 4,
+                        "valoraciones": [
+                            {
+                                "usuario": "malware_hunter",
+                                "comentario": "Explica molt bé les tècniques forenses.",
+                                "estrellas": 4
+                            }
+                        ]
                     }
                 ],
                 "valoraciones": [
@@ -112,13 +164,27 @@ function insertarCursos() {
                         "nombre": "Pau Ferrer",
                         "titulo": "Tècnic en Microinformàtica",
                         "descripcion": "Expert en muntatge i reparació d'equips, amb un enfocament molt pràctic.",
-                        "estrellas": 4
+                        "estrellas": 4,
+                        "valoraciones": [
+                            {
+                                "usuario": "hardware_fan",
+                                "comentario": "Molt clar en el muntatge de PCs.",
+                                "estrellas": 4
+                            }
+                        ]
                     },
                     {
                         "nombre": "Laura Pons",
                         "titulo": "Suport Tècnic",
                         "descripcion": "Gran capacitat per resoldre incidències de hardware i software.",
-                        "estrellas": 4
+                        "estrellas": 4,
+                        "valoraciones": [
+                            {
+                                "usuario": "troubleshooter",
+                                "comentario": "Resol molt bé els problemes de software.",
+                                "estrellas": 5
+                            }
+                        ]
                     }
                 ],
                 "valoraciones": [
@@ -134,7 +200,7 @@ function insertarCursos() {
                     }
                 ]
             }
-        ]
+        ];
         localStorage.setItem('cursos', JSON.stringify(insertCursos));
     }
 }
@@ -205,7 +271,7 @@ function cargarMejoresProfesores() {
                 <hr class="divider">
                 <div class="rating" role="img">${estrellasHtml}</div>
                 <p class="card-description">${profesor.descripcion}</p>
-                <a href="./html/profesor.html" class="btn-more">Veure més</a>
+                <a onclick="ObtenerProfesor('${profesor.nombre}')" class="btn-more">Veure més</a>
             </article>
         `;
     });
