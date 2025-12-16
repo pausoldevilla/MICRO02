@@ -31,7 +31,7 @@ function cargarInfo() {
                      <img professor-avatar src="../img/${profe.url}">
                     <h4 class="titol-targeta">${nombre}</h4>
                     <div class="nota-estrelles nota-petita" role="img">${estrellasHtml}</div>
-                    <a href="#" class="boto-accio btn-small">Veure perfil</a>
+                    <a href="#" class="boto-accio btn-small" onclick="ObtenerProfesor('${nombre}')">Veure perfil</a>
                 </article>
             `;
         });
@@ -200,4 +200,23 @@ function calcularMediaEstrellas(curso) {
     console.log("Media: ", media);
 
     return media;
+}
+
+function ObtenerProfesor(nombreProfesor) {
+    const cursos = JSON.parse(localStorage.getItem('cursos'));
+    let profesorSeleccionado = null;
+
+    // Buscar el profesor en todos los cursos
+    for (const curso of cursos) {
+        const found = curso.profesores.find(p => p.nombre === nombreProfesor);
+        if (found) {
+            profesorSeleccionado = found;
+            break;
+        }
+    }
+
+    if (profesorSeleccionado) {
+        localStorage.setItem('profesorSeleccionado', JSON.stringify(profesorSeleccionado));
+        window.location.href = '../html/profesores.html';
+    }
 }
