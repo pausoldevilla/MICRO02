@@ -11,6 +11,9 @@ function cargarInfo() {
         heroTitle.textContent = profesor.nombre;
     }
 
+    const imagenProfe = document.getElementById('imagenProfe');
+    
+
     
     const cursosContainer = document.getElementById('llista-cursos');
 
