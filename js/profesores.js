@@ -12,8 +12,10 @@ function cargarInfo() {
     }
 
     const imagenProfe = document.getElementById('imagenProfe');
-    
 
+    imagenProfe.innerHTML = `
+        <img src="../img/${profesor.url}">
+    `;
     
     const cursosContainer = document.getElementById('llista-cursos');
 
