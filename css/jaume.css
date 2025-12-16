@@ -122,7 +122,10 @@
     font-size: 0.8rem;
     color: #666;
     margin: 5px 0 15px;
-    min-height: 30px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --- Estilos específicos para Tarjeta de Profesor --- */
@@ -131,6 +134,11 @@
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 5px;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .professor-avatar {
