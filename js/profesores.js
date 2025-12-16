@@ -34,7 +34,6 @@ function cargarInfo() {
             <article class="tarja professor-tarja targeta-professor-petita">
                 <h4 class="titol-targeta">${curso.nombre}</h4>
                 <div class="nota-estrelles nota-petita" role="img">${estrellasHtml}</div>
-                <a href="#" class="boto-accio btn-small">Veure curs</a>
             </article>
         `;
     });
@@ -159,7 +158,7 @@ function valorarProfesor() {
     
     if (indexCurso !== -1) {
         profesorSeleccionado.valoraciones.push(nuevaValoracion);
-        localStorage.setItem('profesorSeleccionado', JSON.stringify(profesorSeleccionado));
+        localStorage.setItem('profesorSeleccionado', JSON.stringify(profesorSeleccionado))
         localStorage.setItem('cursos', JSON.stringify(cursos));
     }
 
@@ -167,7 +166,6 @@ function valorarProfesor() {
 
     window.location.reload();
 }
-
 
 function cargarEstrellas(marcadas) {
     let estrellasHtml = '';
@@ -214,9 +212,6 @@ function calcularMediaEstrellas(profesor) {
         estrellasTotales += estrellas;
         numValoraciones++;
     });
-
-    console.log("NUmero valoraciones: ", numValoraciones);
-    console.log("Estrellas totoales: ", estrellasTotales);
 
     const media = parseInt(estrellasTotales / numValoraciones).toFixed(2);
     console.log("Media: ", media);
