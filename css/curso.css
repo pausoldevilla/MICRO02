@@ -116,7 +116,7 @@ body {
     border: none;
     cursor: pointer;
     font-weight: 700;
-    color: #333;
+    color: white;
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s ease, transform 0.3s ease;
