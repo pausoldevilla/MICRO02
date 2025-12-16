@@ -25,7 +25,7 @@ body {
     align-items: flex-start;
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: var(--tarja-radius);
+    border-radius: var(--card-radius);
     background: #fdfdfd;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -276,7 +276,7 @@ body {
 
 .targeta-valoracio-formulari {
     padding: var(--tarja-padding);
-    border-radius: var(--tarja-radius);
+    border-radius: var(--card-radius);
 }
 
 .distribucio-valorar .targeta-valoracio-formulari {
@@ -298,7 +298,7 @@ body {
 .distribucio-valorar img {
     max-width: 550px;
     height: auto;
-    border-radius: var(--tarja-radius);
+    border-radius: var(--card-radius);
     box-shadow: var(--card-shadow-hover);
     object-fit: cover;
     align-self: flex-start;
@@ -421,7 +421,7 @@ footer {
     min-width: 550px;
     /* Aseguramos que el contenedor de la imagen se estire al 100% del alto disponible */
     align-self: stretch;
-    border-radius: var(--tarja-radius);
+    border-radius: var(--card-radius);
     overflow: hidden;
     /* Importante para recortar la imagen */
 }
