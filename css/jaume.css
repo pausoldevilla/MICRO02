@@ -1,5 +1,5 @@
 /* Importamos el CSS general para heredar todos los estilos base, header, footer, etc. */
-@import url('./general.css'); 
+@import url('./general.css');
 
 /* ==================== ESTILOS DE LA HOME ==================== */
 
@@ -14,7 +14,7 @@
     border-radius: 15px;
     color: var(--white);
     text-align: center;
-    
+
     /* Fondo con degradado + imagen */
     background: linear-gradient(rgba(13, 55, 101, 0.3), rgba(13, 55, 101, 0.95)), url("../img/classe.jpeg");
 
@@ -52,7 +52,10 @@
     border-radius: 8px;
     border: none;
     font-size: 1rem;
+    min-width: 200px;
     width: 600px;
+    /* Fixed width for desktop */
+    box-sizing: border-box;
 }
 
 .hero-inputs button {
@@ -75,10 +78,13 @@
 
 /* --- Grid de Cursos y Profesores --- */
 .grid {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile default: 1 column */
     gap: 30px;
     padding-bottom: 60px;
+    justify-items: center;
+    /* Center items in grid cells */
 }
 
 /* --- Estilo Base de Tarjeta (Curso) --- */
@@ -94,8 +100,16 @@
 }
 
 /* Calculo para 3 columnas en escritorio */
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 equal columns */
+    }
+
     .card {
+        width: 100%;
+        /* Fill the grid cell */
+        max-width: 300px;
     }
 }
 
@@ -133,7 +147,8 @@
 }
 
 .professor-avatar::after {
-    content: '🧑‍🏫'; /* Ejemplo de icono/emoji para profesor */
+    content: '🧑‍🏫';
+    /* Ejemplo de icono/emoji para profesor */
     font-size: 3rem;
     line-height: 1;
     opacity: 0.8;
@@ -172,14 +187,16 @@
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%; /* ✅ ocupa el ancho del input */
+    width: 100%;
+    /* ✅ ocupa el ancho del input */
     background: white;
     border: 1px solid #ccc;
     border-top: none;
     max-height: 200px;
     overflow-y: auto;
     z-index: 20;
-    display: none; /* ✅ oculta hasta que haya resultados */
+    display: none;
+    /* ✅ oculta hasta que haya resultados */
     border-radius: 5px;
 }
 
@@ -197,11 +214,7 @@
 
 
 /* --- Responsive Home Específico --- */
-@media (max-width: 768px) {
-    .hero-home {
-        height: 60vh;
-        margin: 10px;
-    }
+@media (max-width: 850px) {
 
     .hero-inputs {
         flex-direction: column;
