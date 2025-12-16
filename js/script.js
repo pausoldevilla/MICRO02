@@ -23,6 +23,7 @@ function insertarCursos() {
                         "titulo": "Expert en Desenvolupament Web",
                         "descripcion": "Professor apassionat del DAW, amb experiència en projectes reals de programació i disseny web. Els seus alumnes destaquen la claredat i la paciència.",
                         "estrellas": 4,
+                        "url": "jordicasals.png",
                         "valoraciones": [
                             {
                                 "usuario": "frontend_fan",
@@ -41,6 +42,7 @@ function insertarCursos() {
                         "titulo": "Full Stack Developer",
                         "descripcion": "Especialista en frameworks moderns i arquitectures escalables.",
                         "estrellas": 5,
+                        "url": "elenapuig.png",
                         "valoraciones": [
                             {
                                 "usuario": "stack_dev",
@@ -77,6 +79,7 @@ function insertarCursos() {
                         "titulo": "Administradora Sistemes",
                         "descripcion": "Especialista en ASIX, amb coneixements avançats en seguretat i xarxes. Coneguda per fer les classes molt pràctiques i adaptades al món laboral.",
                         "estrellas": 3,
+                        "url": "martasoler.png",
                         "valoraciones": [
                             {
                                 "usuario": "net_admin",
@@ -90,6 +93,7 @@ function insertarCursos() {
                         "titulo": "SysAdmin Senior",
                         "descripcion": "Expert en virtualització i cloud computing.",
                         "estrellas": 5,
+                        "url": "jordimata.jpg",
                         "valoraciones": [
                             {
                                 "usuario": "cloud_fan",
@@ -121,6 +125,7 @@ function insertarCursos() {
                         "titulo": "Expert en Ciberseguretat",
                         "descripcion": "Consultor de seguretat amb anys d'experiència en auditories y pentesting.",
                         "estrellas": 5,
+                        "url": "carlosriera.png",
                         "valoraciones": [
                             {
                                 "usuario": "pentest_pro",
@@ -134,6 +139,7 @@ function insertarCursos() {
                         "titulo": "Analista Forense",
                         "descripcion": "Especialista en anàlisi de malware i resposta a incidents.",
                         "estrellas": 4,
+                        "url": "sofiavidal.png",
                         "valoraciones": [
                             {
                                 "usuario": "malware_hunter",
@@ -165,6 +171,7 @@ function insertarCursos() {
                         "titulo": "Tècnic en Microinformàtica",
                         "descripcion": "Expert en muntatge i reparació d'equips, amb un enfocament molt pràctic.",
                         "estrellas": 4,
+                        "url": "pauferrer.png",
                         "valoraciones": [
                             {
                                 "usuario": "hardware_fan",
@@ -178,6 +185,7 @@ function insertarCursos() {
                         "titulo": "Suport Tècnic",
                         "descripcion": "Gran capacitat per resoldre incidències de hardware i software.",
                         "estrellas": 4,
+                        "url": "laurapons.png",
                         "valoraciones": [
                             {
                                 "usuario": "troubleshooter",
@@ -266,7 +274,7 @@ function cargarMejoresProfesores() {
 
         gridProfesores.innerHTML += `
             <article class="card professor-card">
-                <div class="professor-avatar" aria-hidden="true"></div>
+                <img class="professor-avatar" src="./img/${profesor.url}">
                 <h3 class="card-title">${profesor.nombre} – ${profesor.titulo}</h3>
                 <hr class="divider">
                 <div class="rating" role="img">${estrellasHtml}</div>
