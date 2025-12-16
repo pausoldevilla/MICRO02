@@ -180,9 +180,6 @@ nav a:hover::after {
     width: 100%;
 }
 
-nav a:hover {
-    color: var(--secondary-color);
-}
 
 .btn-login {
     display: flex;
@@ -410,6 +407,23 @@ footer {
     h3 {
         font-size: 22px;
     }
+
+    /* Header Moved here for earlier mobile switch */
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 20px;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 60px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -427,22 +441,7 @@ footer {
         font-size: 20px;
     }
 
-    /* Header */
-    header {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
 
-    nav {
-        gap: 20px;
-        margin: 15px 0;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .logo img {
-        height: 60px;
-    }
 
     /* Footer */
     .footer-content {

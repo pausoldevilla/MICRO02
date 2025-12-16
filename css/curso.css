@@ -27,13 +27,13 @@ body {
     margin-bottom: 20px;
     border-radius: var(--tarja-radius);
     background: #fdfdfd;
-    box-shadow: var(--tarja-shadow);
+    box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .opinio-detallada:hover {
     transform: translateY(-5px);
-    box-shadow: var(--tarja-shadow-hover);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .opinio-detallada .avatar-buit {
@@ -252,7 +252,7 @@ nav a:hover {
     align-items: center;
     text-align: left;
     padding: 15px;
-    box-shadow: var(--tarja-shadow);
+    box-shadow: var(--card-shadow);
     background: #ffffff;
     color: var(--text-color);
     border-radius: 8px;
@@ -320,7 +320,7 @@ nav a:hover {
 .targeta-valoracio-formulari {
     padding: var(--tarja-padding);
     border-radius: var(--tarja-radius);
-    box-shadow: var(--tarja-shadow);
+    box-shadow: var(--card-shadow);
 }
 
 .distribucio-valorar .targeta-valoracio-formulari {
@@ -343,7 +343,7 @@ nav a:hover {
     max-width: 550px;
     height: auto;
     border-radius: var(--tarja-radius);
-    box-shadow: var(--tarja-shadow-hover);
+    box-shadow: var(--card-shadow-hover);
     object-fit: cover;
     align-self: flex-start;
 }
@@ -445,14 +445,15 @@ footer {
 .distribucio-valorar {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Importante: Asegura que los elementos hijos se estiren a la misma altura */
+    align-items: stretch;
+    /* Importante: Asegura que los elementos hijos se estiren a la misma altura */
     gap: 50px;
     padding: 40px 0px 80px 0px;
 }
 
 .distribucio-valorar .targeta-valoracio-formulari {
     /* Mantenemos el ancho, pero permitimos que crezca/encoga si es necesario */
-    width: 550px; 
+    width: 550px;
     flex-shrink: 0;
     text-align: left;
 }
@@ -461,22 +462,23 @@ footer {
 .distribucio-valorar .contenedor-imagen-valoracion {
     max-width: 550px;
     /* Opcional: Esto le da peso visual para ocupar espacio */
-    flex-grow: 1; 
+    flex-grow: 1;
     /* Aseguramos que el contenedor de la imagen se estire al 100% del alto disponible */
-    align-self: stretch; 
+    align-self: stretch;
     border-radius: var(--tarja-radius);
-    box-shadow: var(--tarja-shadow-hover);
-    overflow: hidden; /* Importante para recortar la imagen */
+    box-shadow: var(--card-shadow-hover);
+    overflow: hidden;
+    /* Importante para recortar la imagen */
 }
 
 .distribucio-valorar .contenedor-imagen-valoracion img {
     width: 100%;
     /* Importante: La imagen ocupa el 100% del alto de su contenedor flexible */
-    height: 100%; 
+    height: 100%;
     /* Clave: La imagen cubre el contenedor sin deformarse, recortando si es necesario */
-    object-fit: cover; 
+    object-fit: cover;
     /* Quitamos el box-shadow y border-radius del img, lo ponemos en el contenedor para evitar conflictos */
-    border-radius: 5px; 
+    border-radius: 5px;
     box-shadow: none;
 }
 
@@ -488,15 +490,19 @@ footer {
     }
 
     .distribucio-valorar .targeta-valoracio-formulari,
-    .distribucio-valorar .contenedor-imagen-valoracion { /* Modificado a contenedor-imagen-valoracion */
+    .distribucio-valorar .contenedor-imagen-valoracion {
+        /* Modificado a contenedor-imagen-valoracion */
         width: 100%;
         max-width: 100%;
-        height: auto; /* En vista móvil, permitimos que el alto se ajuste */
+        height: auto;
+        /* En vista móvil, permitimos que el alto se ajuste */
     }
 
     .distribucio-valorar .contenedor-imagen-valoracion img {
-        height: auto; /* En vista móvil, permitimos que el alto se ajuste */
-        object-fit: contain; /* Opcional: Puedes cambiar a contain o mantener cover */
+        height: auto;
+        /* En vista móvil, permitimos que el alto se ajuste */
+        object-fit: contain;
+        /* Opcional: Puedes cambiar a contain o mantener cover */
     }
 
     .seccio-hero {
