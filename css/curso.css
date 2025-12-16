@@ -184,6 +184,8 @@ body {
 .llista-professors {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .targeta-professor-petita {
@@ -195,6 +197,14 @@ body {
     background: #ffffff;
     color: var(--text-color);
     border-radius: 8px;
+    min-width: 280px;
+    flex: 1 1 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.targeta-professor-petita:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .targeta-professor-petita .professor-icona {
@@ -246,14 +256,6 @@ body {
     margin: 0 0 20px;
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 5px;
-}
-
-.distribucio-valorar {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px;
-    padding: 40px 0px 80px 0px;
 }
 
 .targeta-valoracio-formulari {
@@ -391,16 +393,15 @@ footer {
 
 .distribucio-valorar .targeta-valoracio-formulari {
     /* Mantenemos el ancho, pero permitimos que crezca/encoga si es necesario */
-    width: 550px;
+    width: 40%;
     flex-shrink: 0;
     text-align: left;
 }
 
 /* Contenedor de la imagen (lo vamos a convertir en un contenedor div) */
 .distribucio-valorar .contenedor-imagen-valoracion {
-    max-width: 550px;
-    /* Opcional: Esto le da peso visual para ocupar espacio */
-    flex-grow: 1;
+    width: 550px;
+    min-width: 550px;
     /* Aseguramos que el contenedor de la imagen se estire al 100% del alto disponible */
     align-self: stretch;
     border-radius: var(--tarja-radius);
@@ -426,46 +427,76 @@ footer {
         align-items: center;
     }
 
+    .distribucio-valorar {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px 80px 20px;
+    }
+
     .distribucio-valorar .targeta-valoracio-formulari,
     .distribucio-valorar .contenedor-imagen-valoracion {
-        /* Modificado a contenedor-imagen-valoracion */
         width: 100%;
         max-width: 100%;
+        min-width: auto;
         height: auto;
-        /* En vista móvil, permitimos que el alto se ajuste */
+        margin: 0;
+        margin-bottom: 20px;
     }
 
     .distribucio-valorar .contenedor-imagen-valoracion img {
         height: auto;
-        /* En vista móvil, permitimos que el alto se ajuste */
         object-fit: contain;
-        /* Opcional: Puedes cambiar a contain o mantener cover */
     }
 
     .seccio-hero {
-        min-height: 30vh;
-        padding: 40px 0;
+        height: auto;
+        padding: 40px 20px;
     }
 
     .llista-professors {
         flex-direction: column;
         padding: 0 20px;
-    }
-
-    .targeta-professor-petita {
-        width: auto;
-    }
-
-    .distribucio-valorar {
-        flex-direction: column;
+        gap: 15px;
         align-items: center;
     }
 
-    .distribucio-valorar .targeta-valoracio-formulari,
-    .distribucio-valorar img,
-    .distribucio-valorar .contenedor-imagen-valoracion {
-        max-width: 80%;
-        margin: 20px;
+    .targeta-professor-petita {
+        width: 80%;
+        min-width: auto;
+        max-width: 500px;
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .targeta-professor-petita .professor-icona {
+        width: 60px;
+        height: 60px;
+        margin: 0 0 15px 0;
+    }
+
+    .targeta-professor-petita .professor-icona::after {
+        font-size: 2rem;
+    }
+
+    .targeta-professor-petita .titol-targeta {
+        font-size: 1rem;
+        margin: 0 0 10px 0;
+    }
+
+    .targeta-professor-petita .nota-estrelles {
+        font-size: 1rem;
+        margin: 0 0 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .targeta-professor-petita .boto-accio {
+        margin-left: 0;
+        padding: 8px 20px;
+        font-size: 0.8rem;
     }
 }
 
@@ -494,6 +525,36 @@ footer {
     .seccio-peu {
         min-width: 100%;
         margin-bottom: 20px;
+    }
+
+    .targeta-professor-petita {
+        width: 85%;
+        padding: 18px 12px;
+    }
+
+    .targeta-professor-petita .professor-icona {
+        width: 50px;
+        height: 50px;
+        margin: 0 0 12px 0;
+    }
+
+    .targeta-professor-petita .professor-icona::after {
+        font-size: 1.6rem;
+    }
+
+    .targeta-professor-petita .titol-targeta {
+        font-size: 0.95rem;
+        margin: 0 0 8px 0;
+    }
+
+    .targeta-professor-petita .nota-estrelles {
+        font-size: 0.95rem;
+        margin: 0 0 12px 0;
+    }
+
+    .targeta-professor-petita .boto-accio {
+        padding: 7px 16px;
+        font-size: 0.75rem;
     }
 }
 
