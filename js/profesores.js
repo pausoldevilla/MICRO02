@@ -101,11 +101,6 @@ function valorarProfesor() {
 
     const ratingInput = document.getElementsByName('rating');
 
-    if (!ratingInput) {
-        alert("Si us plau, selecciona una puntuació (estrelles).");
-        return;
-    }
-
     let estrellas;
 
     ratingInput.forEach(input => {
@@ -113,6 +108,12 @@ function valorarProfesor() {
             estrellas = parseInt(input.value);
         }
     });
+
+    if (estrellas === undefined) {
+        alert("Si us plau, selecciona una puntuació (estrelles).");
+        return;
+    }
+
 
 
     const commentInput = document.getElementById('comment');

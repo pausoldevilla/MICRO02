@@ -123,14 +123,7 @@ function valorarCurso() {
     // En el caso de que el usuario no esté logueado, se le asigna el nombre 'Anonim'
     const usuarioNombre = userLogged ? userLogged.username : 'Anonim';
 
-
     const ratingInput = document.getElementsByName('rating');
-
-    if (!ratingInput) {
-        alert("Si us plau, selecciona una puntuació (estrelles).");
-        return;
-    }
-
     let estrellas;
 
     ratingInput.forEach(input => {
@@ -138,6 +131,11 @@ function valorarCurso() {
             estrellas = parseInt(input.value);
         }
     });
+    
+    if (estrellas === undefined) {
+        alert("Si us plau, selecciona una puntuació (estrelles).");
+        return;
+    }
 
 
     const commentInput = document.getElementById('comment');
