@@ -160,8 +160,7 @@ function valorarProfesor() {
     }
 
     console.log("Index profesor: ", indexProfesor);
-    cursos[indexCurso].profesores[indexProfesor].valoraciones.push(nuevaValoracion); 
-    
+    cursos[indexCurso].profesores[indexProfesor].estrellas = nuevaValoracion.estrellas;
     if (indexCurso !== -1) {
         profesorSeleccionado.valoraciones.push(nuevaValoracion);
         localStorage.setItem('profesorSeleccionado', JSON.stringify(profesorSeleccionado))
